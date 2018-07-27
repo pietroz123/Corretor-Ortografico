@@ -20,9 +20,10 @@
 class Corretor {
 
     private:
-            
+        
 
     public:
+		void Compara(Texto &T, Dicionario &D);
 
 };
 

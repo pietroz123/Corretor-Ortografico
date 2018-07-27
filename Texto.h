@@ -12,6 +12,7 @@
 #define TEXTO_H
 
 #include <list>
+#include <vector>
 
 #include "Palavra.h"
 
@@ -19,7 +20,7 @@ class Texto {
 
     private:
         string Nome_Arquivo;
-        list<Palavra> L;
+        vector<Palavra> L;
 
     public:
 
