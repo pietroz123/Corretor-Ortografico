@@ -1,4 +1,8 @@
 #include <iostream>
+#include <vector>
+#include <fstream>
+
+
 using namespace std;
 
 #include "Arvore.h"
@@ -6,6 +10,20 @@ using namespace std;
 int main() {
 
     Arvore A;
+
+    vector<string> words;
+    string temp;
+    ifstream file("teste.txt");
+
+    while (file >> temp) {
+        words.push_back(temp);
+    }
+    file.close();
+
+    for (int i = 0; i < words.size(); i++)
+        cout << words.at(i) << " ";
+    cout << endl;    
+
 
     int Opcao = -1;
     while (Opcao != 0) {
