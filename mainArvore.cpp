@@ -20,10 +20,15 @@ int main() {
     }
     file.close();
 
+    cout << "Palavras encontradas: ";
     for (int i = 0; i < words.size(); i++)
         cout << words.at(i) << " ";
     cout << endl;    
 
+    cout << "Inserindo na Arvore...";
+    for (int i = 0; i < words.size(); i++)
+        A.Inserir(words.at(i));
+    cout << endl;
 
     int Opcao = -1;
     while (Opcao != 0) {
