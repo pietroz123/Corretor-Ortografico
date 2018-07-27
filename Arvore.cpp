@@ -13,7 +13,6 @@ Arvore::Arvore() {
     Arvore::Raiz = NULL;
     Arvore::nFilhos = 0;
 }
-
 // Destrutor
 void Destrutor_Privado(No *N) {
     if (N == NULL)  return;
@@ -41,7 +40,7 @@ void Arvore::MostraFbs(No *N) {
     MostraFbs(N->Filho_Esquerdo);
     MostraFbs(N->Filho_Direito);
 }
-int altura(No *N) {
+int Arvore::altura(No *N) {
     if (N == NULL)  return 0;
     int He = altura(N->Filho_Esquerdo); // He = Altura Esquerda
     int Hd = altura(N->Filho_Direito);  // Hd = Altura Direita
@@ -50,7 +49,7 @@ int altura(No *N) {
     else
         return He + 1;
 }
-int Fb(No *N) {
+int Arvore::Fb(No *N) {
     return altura(N->Filho_Direito) - altura(N->Filho_Esquerdo);
 }
 void Arvore::AtualizaFbs(No *N) {
@@ -70,8 +69,21 @@ No *RotacaoRL(No *A) {
     C->Filho_Esquerdo = A;
     C->Filho_Direito = B;    
     B->Filho_Esquerdo = h3;
-    A->Filho_Direito = h2;                
-    
+    A->Filho_Direito = h2; 
+
+    // if( C->Fb == -1 ) {
+    //     A->Fb = 0;
+    //     B->Fb = 1;
+    //     C->Fb = 0;
+    // } else if( C->Fb == 1 ) {
+    //     A->Fb = -1;
+    //     B->Fb = 0;
+    //     C->Fb = 0;
+    // } else { // C->bal == 0
+    //     A->Fb = 0;
+    //     B->Fb = 0;
+    // }           
+
     return C;   
 }
 No *RotacaoLR(No *A) {
@@ -84,6 +96,19 @@ No *RotacaoLR(No *A) {
     C->Filho_Direito = A;
     B->Filho_Direito = h2;
     A->Filho_Esquerdo = h3;
+
+    // if( C->Fb == -1 ) {
+    //     A->Fb = 1;
+    //     B->Fb = 0;
+    //     C->Fb = 0;
+    // } else if( C->Fb == 1 ) {
+    //     A->Fb = 0;
+    //     B->Fb = -1;
+    //     C->Fb = 0;
+    // } else { // C->bal == 0
+    //     A->Fb = 0;
+    //     B->Fb = 0;
+    // }   
     
     return C;
 }
@@ -94,6 +119,9 @@ No *RotacaoLL(No *A) {
     B->Filho_Direito= A;
     A->Filho_Esquerdo= h2;
 
+    // A->Fb = 0;
+    // B->Fb = 0;
+
     return B;    
 }
 No *RotacaoRR(No *A) {
@@ -103,10 +131,13 @@ No *RotacaoRR(No *A) {
     B->Filho_Esquerdo = A;
     A->Filho_Direito = h2;
 
+    // A->Fb = 0;
+    // B->Fb = 0;
+
     return B;
 }
 // Inserção
-No *Inserir_Privado(No *N, Palavra P) {
+No *Arvore::Inserir_Privado(No *N, Palavra P) {
     if (N == NULL) {
         No *Novo = new No;
         Novo->Filho_Esquerdo = Novo->Filho_Direito = NULL;

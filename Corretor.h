@@ -17,12 +17,13 @@
 #include "Texto.h"
 #include "Dicionario.h"
 
-class Corretor{
+class Corretor {
 
     private:
-        
+            
 
     public:
+
 };
 
 

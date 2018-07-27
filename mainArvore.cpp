@@ -13,7 +13,7 @@ int main() {
 
     vector<Palavra> words;
     Palavra temp;
-    ifstream file("teste.txt");
+    ifstream file("dic.txt");
 
     while (file >> temp) {
         words.push_back(temp);
@@ -23,7 +23,7 @@ int main() {
     cout << "Palavras encontradas: ";
     for (int i = 0; i < words.size(); i++)
         cout << words.at(i) << " ";
-    cout << endl;    
+    cout << endl;
 
     cout << "Inserindo na Arvore...";
     for (int i = 0; i < words.size(); i++)
@@ -54,8 +54,10 @@ int main() {
             }
 
             case 4: { // MostraFbs
+                A.AtualizaFbs(A.getPrimeiro());
                 A.MostraFbs(A.getPrimeiro());
                 cout << endl;
+                cout << "Altura = " << A.altura(A.getPrimeiro()) << endl;
                 break;
             }
 

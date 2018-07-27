@@ -36,12 +36,15 @@ class Arvore {
         ~Arvore();
         bool Vazia();
         void Inserir(Palavra);
+        No *Inserir_Privado(No *N, Palavra P);
         void Remover();
         No* Busca(Palavra);
         void PreOrdem(No*);
         No *getPrimeiro();
         void MostraFbs(No*);
         void AtualizaFbs(No*);
+        int altura(No *N);
+        int Fb(No *N);
 };
 
 #endif

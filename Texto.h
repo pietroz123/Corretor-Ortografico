@@ -15,14 +15,14 @@
 
 #include "Palavra.h"
 
-class Texto{
+class Texto {
 
     private:
         string Nome_Arquivo;
         list<Palavra> L;
 
     public:
-        
+
 
 };
 
