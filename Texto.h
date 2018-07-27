@@ -23,7 +23,8 @@ class Texto {
         vector<Palavra> L;
 
     public:
-
+        void CarregarTexto(ifstream& Arquivo);
+        void ImprimirTexto();
 
 };
 

@@ -1,6 +1,5 @@
 #include "Dicionario.h"
 #include <vector>
-#include <list>
 
 
 void Dicionario::InserirPalavras(ifstream &arquivo) {
@@ -20,7 +19,7 @@ void Dicionario::InserirPalavras(ifstream &arquivo) {
 
     // cout << "Inserindo na arvore..." << endl;
     // for (int i = 0; i < words.size(); i++)
-    //     A.Inserir(words.at(i));
+    //     Palavras_Do_Arquivo.Inserir(words.at(i));
 
     list<Palavra> words;
     Palavra temp;
@@ -39,13 +38,41 @@ void Dicionario::InserirPalavras(ifstream &arquivo) {
 
     cout << "Inserindo na arvore..." << endl;
     for (it = words.begin(); it != words.end(); it++)
-        A.Inserir(*it);
+        Palavras_Do_Arquivo.Inserir(*it);
     cout << endl;
 
 }
 
 void Dicionario::ImprimirPalavras() {
     cout << "Imprimindo arvore..." << endl;
-    A.PreOrdem(A.getPrimeiro());
+    Palavras_Do_Arquivo.PreOrdem(Palavras_Do_Arquivo.getPrimeiro());
     cout << endl;
+}
+
+void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
+    if (N == NULL)  return;
+    if (P.Semelhante(N->P))
+        Semelhantes.push_back(N->P);
+    setSemelhantes_Privado(N->Filho_Esquerdo, P);
+    setSemelhantes_Privado(N->Filho_Direito, P);
+}
+void Dicionario::setSemelhantes(Palavra &P) {
+    setSemelhantes_Privado(Palavras_Do_Arquivo.getPrimeiro(), P);
+}
+
+void Dicionario::MostrarSemelhantes() {
+
+    if (Palavras_Do_Arquivo.Vazia()) {
+        cout << "Nao foram inseridas palavras na arvore!" << endl;
+        return;
+    }
+
+    cout << "Imprimindo semelhantes..." << endl;
+
+    list<Palavra>::iterator it;
+    for (it = Semelhantes.begin(); it != Semelhantes.end(); it++)
+        cout << *it << " ";
+
+    cout << endl;
+
 }

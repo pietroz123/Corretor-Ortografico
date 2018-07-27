@@ -15,15 +15,20 @@
 
 #include "Arvore.h"
 #include <fstream>
+#include <list>
 
 class Dicionario{
 
     private:
-        Arvore A;
+        Arvore Palavras_Do_Arquivo;
+        list<Palavra> Semelhantes;
 
     public:
         void InserirPalavras(ifstream &arquivo);
         void ImprimirPalavras();
+        void setSemelhantes(Palavra &P);
+        void setSemelhantes_Privado(No *N, Palavra &P);
+        void MostrarSemelhantes();
 
 };
 

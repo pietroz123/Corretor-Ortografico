@@ -9,8 +9,11 @@ int main() {
 
     ifstream arquivo("teste.txt");
     D.InserirPalavras(arquivo);
-
     D.ImprimirPalavras();
+
+    Palavra P("Bananoide");
+    D.setSemelhantes(P);
+    D.MostrarSemelhantes();
 
 
     return 0;
