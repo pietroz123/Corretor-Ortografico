@@ -13,7 +13,7 @@ int main() {
 
     vector<Palavra> words;
     Palavra temp;
-    ifstream file("dic.txt");
+    ifstream file("teste.txt");
 
     while (file >> temp) {
         words.push_back(temp);
@@ -70,6 +70,17 @@ int main() {
                     cout << "Palavra '" << Temp->P << "' encontrada!" << endl;
                 else
                     cout << "Nao encontrou" << endl;
+                break;
+            }
+
+            case 6: { // Teste semelhantes
+
+                Palavra P1("Banana"), P2("Bananoide");
+                if (P1.Semelhante(P2))
+                    cout << "Semelhantes!" << endl;
+                else
+                    cout << "Nao semelhantes!" << endl;
+
                 break;
             }
 

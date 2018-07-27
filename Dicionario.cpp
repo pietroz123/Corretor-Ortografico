@@ -51,13 +51,14 @@ void Dicionario::ImprimirPalavras() {
 
 void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
     if (N == NULL)  return;
-    if (P.Semelhante(N->P))
+    if ((N->P).Semelhante(P)) {
         Semelhantes.push_back(N->P);
+    }
     setSemelhantes_Privado(N->Filho_Esquerdo, P);
     setSemelhantes_Privado(N->Filho_Direito, P);
 }
 void Dicionario::setSemelhantes(Palavra &P) {
-    setSemelhantes_Privado(Palavras_Do_Arquivo.getPrimeiro(), P);
+    Dicionario::setSemelhantes_Privado(Palavras_Do_Arquivo.getPrimeiro(), P);
 }
 
 void Dicionario::MostrarSemelhantes() {
@@ -66,8 +67,6 @@ void Dicionario::MostrarSemelhantes() {
         cout << "Nao foram inseridas palavras na arvore!" << endl;
         return;
     }
-
-    cout << "Imprimindo semelhantes..." << endl;
 
     list<Palavra>::iterator it;
     for (it = Semelhantes.begin(); it != Semelhantes.end(); it++)

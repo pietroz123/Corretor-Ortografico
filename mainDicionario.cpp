@@ -11,8 +11,9 @@ int main() {
     D.InserirPalavras(arquivo);
     D.ImprimirPalavras();
 
-    Palavra P("Bananoide");
+    Palavra P("bananoide");
     D.setSemelhantes(P);
+    cout << "Mostrando palavras semelhantes a '" << P << "' ..." << endl;
     D.MostrarSemelhantes();
 
 
