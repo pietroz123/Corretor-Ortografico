@@ -14,14 +14,17 @@
 #define DICIONARIO_H
 
 #include "Arvore.h"
+#include <fstream>
 
 class Dicionario{
 
     private:
         Arvore A;
-        
 
     public:
+        void InserirPalavras(ifstream &arquivo);
+        void ImprimirPalavras();
+
 };
 
 
