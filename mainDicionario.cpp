@@ -5,10 +5,12 @@ using namespace std;
 
 int main() {
 
-    Dicionario A;
+    Dicionario D;
 
     ifstream arquivo("teste.txt");
-    A.InserirPalavras(arquivo);
+    D.InserirPalavras(arquivo);
+
+    D.ImprimirPalavras();
 
 
     return 0;
