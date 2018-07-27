@@ -11,8 +11,8 @@ int main() {
 
     Arvore A;
 
-    vector<string> words;
-    string temp;
+    vector<Palavra> words;
+    Palavra temp;
     ifstream file("teste.txt");
 
     while (file >> temp) {
