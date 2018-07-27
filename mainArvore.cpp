@@ -59,6 +59,18 @@ int main() {
                 break;
             }
 
+            case 5: { // Busca
+                Palavra R;
+                cout << "Digite a palavra a ser procurada: ";
+                cin >> R;
+                No *Temp = A.Busca(R);
+                if (Temp)
+                    cout << "Palavra '" << Temp->P << "' encontrada!" << endl;
+                else
+                    cout << "Nao encontrou" << endl;
+                break;
+            }
+
         }
     }
 

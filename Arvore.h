@@ -1,6 +1,12 @@
 
-/*Bianca Gomes Rodrigues
-  Pietro Zuntini Bonfim*/
+/*
+→ Classe Arvore
+- Deve ter na interface apenas os métodos:
+	→ Vazia
+	→ Insere
+	→ Remove
+	→ Busca
+*/
 
 
 #ifndef AVL_H

@@ -1,3 +1,8 @@
+
+/*
+→ Classe Corretor (contém um dicionário, um texto e a lista de palavras erradas)
+*/
+
 #ifndef CORRETOR_H
 #define CORRETOR_H
 
