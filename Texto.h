@@ -3,7 +3,7 @@
     - Contém uma LISTA de Palavras;
     - Contém nome do ARQUIVO original do Texto;
     - Permite carregar um Texto a partir de um ARQUIVO;
-    - Permite percorre o texto, palavra por palavra;
+    - Permite percorrer o texto, palavra por palavra;
     - Permite alterar uma Palavra;
     - Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original).
 */
@@ -18,9 +18,12 @@
 class Texto{
 
     private:
+        string Nome_Arquivo;
         list<Palavra> L;
 
     public:
+        
+
 };
 
 

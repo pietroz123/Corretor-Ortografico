@@ -13,12 +13,12 @@
 #ifndef DICIONARIO_H
 #define DICIONARIO_H
 
-#include "Palavra.h"
+#include "Arvore.h"
 
 class Dicionario{
 
     private:
-
+        Arvore A;
         
 
     public:

@@ -28,7 +28,7 @@ Arvore::~Arvore() {
 
 // Vazia
 bool Arvore::Vazia() {
-    if (nFilhos == 0)
+    if (Raiz == NULL)
         return true;
     else 
         return false;
