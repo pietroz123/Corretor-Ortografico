@@ -49,6 +49,13 @@ void Dicionario::ImprimirPalavras() {
     cout << endl;
 }
 
+
+bool Dicionario::Consulta(Palavra &P) {
+    return Palavras_Do_Arquivo.Busca(P) != NULL;
+}
+
+
+
 void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
     if (N == NULL)  return;
     if ((N->P).Semelhante(P)) {

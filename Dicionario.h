@@ -26,6 +26,7 @@ class Dicionario{
     public:
         void InserirPalavras(ifstream &arquivo);
         void ImprimirPalavras();
+        bool Consulta(Palavra &P);
         void setSemelhantes(Palavra &P);
         void setSemelhantes_Privado(No *N, Palavra &P);
         void MostrarSemelhantes();

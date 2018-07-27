@@ -16,6 +16,12 @@ int main() {
     cout << "Mostrando palavras semelhantes a '" << P << "' ..." << endl;
     D.MostrarSemelhantes();
 
+    Palavra P2("edson");
+    if (D.Consulta(P2))
+        cout << "Existe a palavra na arvore do dicionario!" << endl;
+    else
+        cout << "NAO existe a palavra na arvore do dicionario!" << endl;
+
 
     return 0;
 }
