@@ -24,10 +24,17 @@ class Dicionario{
         list<Palavra> Semelhantes;
 
     public:
+        // → Armazena as palavras do arquivo “dict.txt” em uma árvore balanceada
         void InserirPalavras(ifstream &arquivo);
         void ImprimirPalavras();
+    
+        // → Consulta de palavras
         bool Consulta(Palavra &P);
+
+        // → Inclusão de palavras
         void InserirPalavra(Palavra &P);
+
+        // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
         void setSemelhantes(Palavra &P);
         void setSemelhantes_Privado(No *N, Palavra &P);
         void MostrarSemelhantes();
