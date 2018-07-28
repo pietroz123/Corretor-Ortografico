@@ -15,7 +15,7 @@ void Texto::CarregarTexto() {
         Palavras_Texto.push_back(Temp);
 
     Arquivo.close();
-    
+
 }
 
 
@@ -26,5 +26,16 @@ void Texto::ImprimirTexto() {
         cout << *it << " ";
     
     cout << endl;
+
+}
+
+
+void Texto::GravarTexto(ofstream &Arquivo) {
+    
+    list<Palavra>::iterator it;
+    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++)
+        Arquivo << *it << " ";
+    
+    Arquivo.close();
 
 }

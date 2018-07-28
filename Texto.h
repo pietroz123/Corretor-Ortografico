@@ -20,16 +20,23 @@
 class Texto {
 
     private:
+        // → Contém nome do ARQUIVO original do Texto;
         string Nome_Arquivo_Texto;
         list<Palavra> Palavras_Texto;
 
     public:
-        // → Contém nome do ARQUIVO original do Texto;
         // → Permite carregar um Texto a partir de um ARQUIVO;
         void setNomeArquivo(string Nome);
         void CarregarTexto();
 
+        // → Permite percorrer o texto, palavra por palavra;
         void ImprimirTexto();
+
+        // → Permite alterar uma Palavra;
+        
+
+        // → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original);
+        void GravarTexto(ofstream &Arquivo);
 
 };
 
