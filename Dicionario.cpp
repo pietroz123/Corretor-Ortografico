@@ -55,6 +55,11 @@ bool Dicionario::Consulta(Palavra &P) {
 }
 
 
+void Dicionario::InserirPalavra(Palavra &P) {
+    Palavras_Do_Arquivo.Inserir(P);
+}
+
+
 
 void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
     if (N == NULL)  return;
