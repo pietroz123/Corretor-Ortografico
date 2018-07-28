@@ -13,7 +13,7 @@ int main() {
 
     vector<Palavra> words;
     Palavra temp;
-    ifstream file("teste.txt");
+    ifstream file("dic.txt");
 
     while (file >> temp) {
         words.push_back(temp);
