@@ -3,43 +3,27 @@
 
 
 void Dicionario::InserirPalavras(ifstream &arquivo) {
-    
-    // vector<Palavra> words;
-    // Palavra temp;
-    
-    // while (arquivo >> temp)
-    //     words.push_back(temp);
-    
-    // arquivo.close();
 
-    // cout << "Palavras do arquivo texto: ";
-    // for (int i = 0; i < words.size(); i++)
-    //     cout << words.at(i) << " ";
-    // cout << endl;
-
-    // cout << "Inserindo na arvore..." << endl;
-    // for (int i = 0; i < words.size(); i++)
-    //     Palavras_Do_Dicionario.Inserir(words.at(i));
-
-    list<Palavra> words;
+    // list<Palavra> words;
     Palavra temp;
     
     while (arquivo >> temp)
-        words.push_back(temp);
+        // words.push_back(temp);
+        Palavras_Do_Dicionario.Inserir(temp);
     
     arquivo.close();
 
-    list<Palavra>::iterator it;
+    // list<Palavra>::iterator it;
 
-    cout << "Palavras do arquivo texto: ";
-    for (it = words.begin(); it != words.end(); it++)
-        cout << *it << " ";
-    cout << endl;
+    // cout << "Palavras do arquivo texto dic.txt: ";
+    // for (it = words.begin(); it != words.end(); it++)
+    //     cout << *it << " ";
+    // cout << endl;
 
-    cout << "Inserindo na arvore..." << endl;
-    for (it = words.begin(); it != words.end(); it++)
-        Palavras_Do_Dicionario.Inserir(*it);
-    cout << endl;
+    // cout << "Inserindo na arvore..." << endl;
+    // for (it = words.begin(); it != words.end(); it++)
+    //     Palavras_Do_Dicionario.Inserir(*it);
+    // cout << endl;
 
 }
 
