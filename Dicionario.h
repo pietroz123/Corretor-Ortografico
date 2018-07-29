@@ -20,7 +20,7 @@
 class Dicionario{
 
     private:
-        Arvore Palavras_Do_Arquivo;
+        Arvore Palavras_Do_Dicionario;
         list<Palavra> Semelhantes;
 
     public:
