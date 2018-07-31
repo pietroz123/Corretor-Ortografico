@@ -10,11 +10,15 @@ void Texto::CarregarTexto() {
     ifstream Arquivo;
     Arquivo.open(Nome_Arquivo_Texto, ifstream::in);
 
-    Palavra Temp;
-    while (Arquivo >> Temp)
-        Palavras_Texto.push_back(Temp);
+    if (Arquivo) {
 
-    Arquivo.close();
+        Palavra Temp;
+        while (Arquivo >> Temp)
+            Palavras_Texto.push_back(Temp);
+
+        Arquivo.close();
+
+    }
 
 }
 
@@ -38,4 +42,8 @@ void Texto::GravarTexto(ofstream &Arquivo) {
     
     Arquivo.close();
 
+}
+
+list<Palavra> Texto::getPalavrasTexto() {
+    return Palavras_Texto;
 }

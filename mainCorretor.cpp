@@ -25,6 +25,8 @@ int main() {
 
     T.ImprimirTexto();
 
+    C.Compara(T, D);
+
     int Opcao;
     cout << "Deseja gravar o texto em um arquivo diferente? (1) SIM (2) NAO : ";
     cin >> Opcao;

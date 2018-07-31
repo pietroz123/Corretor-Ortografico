@@ -7,7 +7,7 @@ int main() {
 
     Dicionario D;
 
-    ifstream arquivo("teste.txt");
+    ifstream arquivo("dic.txt");
     D.InserirPalavras(arquivo);
     D.ImprimirPalavras();
 
