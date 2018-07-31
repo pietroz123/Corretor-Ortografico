@@ -27,6 +27,11 @@ void Dicionario::InserirPalavras(ifstream &arquivo) {
 
 }
 
+list<Palavra> Dicionario::getSemelhantes(){
+    return Semelhantes;    
+}
+
+
 void Dicionario::ImprimirPalavras() {
     cout << "Imprimindo arvore..." << endl;
     Palavras_Do_Dicionario.PreOrdem(Palavras_Do_Dicionario.getPrimeiro());

@@ -39,6 +39,8 @@ class Dicionario{
         void setSemelhantes_Privado(No *N, Palavra &P);
         void MostrarSemelhantes();
 
+        // Funções Auxiliares
+        list<Palavra> getSemelhantes();
 };
 
 
