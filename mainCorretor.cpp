@@ -31,13 +31,8 @@ int main() {
     cout << "Deseja gravar o texto em um arquivo diferente? (1) SIM (2) NAO : ";
     cin >> Opcao;
 
-    if (Opcao == 1) {
-        string Nome_Gravar;
-        cout << "Digite o nome do arquivo para gravar: ";
-        cin >> Nome_Gravar;
-        ofstream Gravar(Nome_Gravar);
-        T.GravarTexto(Gravar);   
-    }
+    if (Opcao == 1)
+        T.GravarTexto(  );   
 
 
     return 0;

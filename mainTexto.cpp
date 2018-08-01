@@ -21,8 +21,7 @@ int main() {
     int Opcao;
     cin >> Opcao;
     if (Opcao == 1) {
-        ofstream Gravar("gravar.txt");
-        T.GravarTexto(Gravar);
+        T.GravarTexto();
     }
 
 
