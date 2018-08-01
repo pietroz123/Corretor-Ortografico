@@ -32,7 +32,7 @@ int main() {
     cin >> Opcao;
 
     if (Opcao == 1)
-        T.GravarTexto(  );   
+        T.GravarTexto();   
 
 
     return 0;

@@ -42,6 +42,7 @@ class Texto {
         // Funções Auxiliares
         //Retorna a Lista com todas as Palavras do Texto
         list<Palavra> getPalavrasTexto();
+        void AlterarPalavra(list<Palavra>::iterator &it);
 };
 
 

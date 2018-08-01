@@ -59,17 +59,10 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 int Resposta;
                 cout << "Deseja selecionar uma Palavra Semelhante? (1) SIM (2) NAO " << endl;
                 cin >> Resposta;
+                
                 if(Resposta == 1){
-
-                    Palavra P;
-                    cout << "Digite a Palavra desejada: ";
-                    cin >> P;
-                    cout << *it << endl;
-                    *it = P;
-                    cout << *it << endl;
-                    cout << "Palavra Alterada!" << endl;
+                    T.AlterarPalavra(it);
                     return;
-
                 }                                                                            
                 
             }

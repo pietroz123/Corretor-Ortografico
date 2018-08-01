@@ -53,9 +53,11 @@ void Texto::GravarTexto() {
     Arquivo.open(Nome, ofstream::out);
 
     list<Palavra>::iterator it;
-    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++)
+    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++) {
+        cout << *it << " ";
         Arquivo << *it << " ";
-    
+    }
+
     Arquivo.close();
 
 }
@@ -63,4 +65,14 @@ void Texto::GravarTexto() {
 
 list<Palavra> Texto::getPalavrasTexto() {
     return Palavras_Texto;
+}
+
+void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
+
+    Palavra P;
+    cout << "Digite a Palavra desejada: ";
+    cin >> P;
+    *it = P;
+    cout << "Palavra Alterada!" << endl;
+
 }
