@@ -64,25 +64,13 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                     Palavra P;
                     cout << "Digite a Palavra desejada: ";
                     cin >> P;
+                    cout << *it << endl;
                     *it = P;
+                    cout << *it << endl;
                     cout << "Palavra Alterada!" << endl;
-                                            
-                }
-                else {
+                    return;
 
-                }
-
-                // Acho que basicamente imprimimos a lista toda de semelhantes e o usario pode escolher selecionar uma ou nao, tipo
-                // Mostra todas Semelhantes
-                // Deseja selecionar uma (1) SIM (2) NAO
-                // Se SIM {
-                //     Qual voce quer?
-                //     Digite qual voce quer
-                //     cin >> P;
-                //     E coloca o P na posicao da lista do texto que a o iterador esta apontando
-                //     Acho que eh isso ne amor?
-                // }
-                                                                            
+                }                                                                            
                 
             }
         }

@@ -44,6 +44,7 @@ void Texto::GravarTexto(ofstream &Arquivo) {
 
 }
 
+
 list<Palavra> Texto::getPalavrasTexto() {
     return Palavras_Texto;
 }
