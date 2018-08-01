@@ -41,7 +41,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
         
             int Opcao;
             cout << endl << "Opcoes:" << endl; 
-            cout << "(1) Corrigir" << endl << "(2) Ignorar" << endl << "(3) Selecionar uma Palavra Semelhante" << endl << "(4) Adicionar ao Dicionario" << endl;
+            cout << "(0) Sair" << endl << "(1) Corrigir" << endl << "(2) Ignorar" << endl << "(3) Selecionar uma Palavra Semelhante" << endl << "(4) Adicionar ao Dicionario" << endl;
             cout << "Opcao: ";
             cin >> Opcao;
 

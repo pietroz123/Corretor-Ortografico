@@ -31,6 +31,7 @@ class Texto {
 
         // → Permite percorrer o texto, palavra por palavra;
         void ImprimirTexto();
+        bool Buscar(Palavra &);
 
         // → Permite alterar uma Palavra;
         

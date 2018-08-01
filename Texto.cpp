@@ -36,6 +36,18 @@ void Texto::ImprimirTexto() {
 
 }
 
+bool Texto::Buscar(Palavra &P) {
+
+    list<Palavra>::iterator it;
+
+    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++) {
+        if (P == *it)
+            return true;
+    }
+    
+    return false;
+}
+
 
 void Texto::GravarTexto(ofstream &Arquivo) {
     
