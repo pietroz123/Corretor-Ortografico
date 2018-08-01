@@ -22,8 +22,8 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
 
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
     
-        /*Verifica se a Palavra está no Dicionario      
-        * Caso não esteja : */
+        // Verifica se a Palavra está no Dicionario      
+        // Caso não esteja : 
         if( D.Consulta(*it) == false ) {
 
             // Coloca a palavra errada na lista de Erros do Corretor
@@ -54,10 +54,6 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 list<Palavra> Semelhante = D.getSemelhantes();                                
             
                 cout << "Lista de Palavras Semelhantes: ";
-                // list<Palavra>::iterator it_S;
-                // for( it_S = Semelhante.begin(); it_S != Semelhante.end(); it++)
-                //     cout << *it_S;
-                // cout << endl;
                 D.MostrarSemelhantes();
 
                 int Resposta;
