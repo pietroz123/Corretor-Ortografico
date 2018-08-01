@@ -19,6 +19,9 @@ void Texto::CarregarTexto() {
         Arquivo.close();
 
     }
+    else{
+        cout << "Arquivo inexistente!" << endl;
+    }
 
 }
 
@@ -53,10 +56,8 @@ void Texto::GravarTexto() {
     Arquivo.open(Nome, ofstream::out);
 
     list<Palavra>::iterator it;
-    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++) {
-        cout << *it << " ";
+    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++) 
         Arquivo << *it << " ";
-    }
 
     Arquivo.close();
 

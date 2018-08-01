@@ -38,15 +38,20 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             list<Palavra>::iterator Proximo = next(it, 1);
 
             ImprimeContexto(TextWords.begin(), it, TextWords.end());         
-            
-
+        
             int Opcao;
             cout << endl << "Opcoes:" << endl; 
             cout << "(1) Corrigir" << endl << "(2) Ignorar" << endl << "(3) Selecionar uma Palavra Semelhante" << endl << "(4) Adicionar ao Dicionario" << endl;
             cout << "Opcao: ";
             cin >> Opcao;
 
-            if (Opcao == 3) {
+            if (Opcao == 1) {
+                T.AlterarPalavra(TextWords, *it);
+                cout << "Palavra alterada com sucesso!" << endl;     
+                return;
+                
+            }
+            else if (Opcao == 3) {
 
                 // Descobrimos as palavras semelhantes
                 D.setSemelhantes(*it);
@@ -57,15 +62,18 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 D.MostrarSemelhantes();
 
                 int Resposta;
-                cout << "Deseja selecionar uma Palavra Semelhante? (1) SIM (2) NAO " << endl;
+                cout << "Deseja selecionar uma Palavra Semelhante?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
                 cin >> Resposta;
                 
                 if(Resposta == 1){
                     T.AlterarPalavra(TextWords, *it);
-                    T.ImprimirTexto();
-                    return;
-                }                                                                            
+                    cout << "Palavra alterada com sucesso!" << endl;
+                }                         
                 
+            }
+            else if (Opcao == 4) {
+                D.InserirPalavra(*it);
+                cout << "Palavra Adicionada!" << endl;
             }
         }
     }

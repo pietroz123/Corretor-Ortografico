@@ -4,6 +4,10 @@ using namespace std;
 #include "Corretor.h"
 #include <string>
 
+#define SAIR            0
+#define COMPARAR        1
+#define DICIONARIO      2
+
 int main() {
 
     Corretor C;
@@ -28,12 +32,15 @@ int main() {
     C.Compara(T, D);
 
     int Opcao;
-    cout << "Deseja gravar o texto em um arquivo diferente? (1) SIM (2) NAO : ";
-    cin >> Opcao;
 
-    if (Opcao == 1)
-        T.GravarTexto();   
-
+    while(Opcao != 2){
+        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
+        cin >> Opcao;
+        if (Opcao == 1){
+            T.GravarTexto();   
+            cout << "Texto gravado com sucesso!" << endl;
+        }
+    }
 
     return 0;
 }
