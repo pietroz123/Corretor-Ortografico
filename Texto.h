@@ -43,6 +43,8 @@ class Texto {
         //Retorna a Lista com todas as Palavras do Texto
         list<Palavra> getPalavrasTexto();
         void AlterarPalavra(list<Palavra>::iterator &it);
+        void AlterarPalavra(list<Palavra> &lista, Palavra &P);
+
 };
 
 

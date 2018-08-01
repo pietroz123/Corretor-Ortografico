@@ -67,12 +67,18 @@ list<Palavra> Texto::getPalavrasTexto() {
     return Palavras_Texto;
 }
 
-void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
+void Texto::AlterarPalavra(list<Palavra> &Lista, Palavra &P) {
 
-    Palavra P;
+    Palavras_Texto = Lista;
+
+    Palavra P2;
     cout << "Digite a Palavra desejada: ";
-    cin >> P;
-    *it = P;
-    cout << "Palavra Alterada!" << endl;
+    cin >> P2;
 
+    for (list<Palavra>::iterator it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++) {
+        if (*it == P) {
+            *it = P2;
+            break;
+        }
+    }
 }

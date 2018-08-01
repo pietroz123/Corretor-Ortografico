@@ -61,7 +61,8 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 cin >> Resposta;
                 
                 if(Resposta == 1){
-                    T.AlterarPalavra(it);
+                    T.AlterarPalavra(TextWords, *it);
+                    T.ImprimirTexto();
                     return;
                 }                                                                            
                 
