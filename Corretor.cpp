@@ -26,9 +26,18 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
         // Caso não esteja : 
         if( D.Consulta(*it) == false ) {
 
+            int Opcao;
+
             // Coloca a palavra errada na lista de Erros do Corretor
             Erros.push_back(*it);
-          
+
+            cout << endl<< "Deseja continuar?"<< endl;
+            cout << "\t(1) SIM (2) NAO" << endl;
+            cin >> Opcao;
+
+            if(Opcao == 2)
+                return;
+
             // Imprime a palavra anterior e a próxima
             cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
             
@@ -38,43 +47,52 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             list<Palavra>::iterator Proximo = next(it, 1);
 
             ImprimeContexto(TextWords.begin(), it, TextWords.end());         
-        
-            int Opcao;
-            cout << endl << "Opcoes:" << endl; 
-            cout << "(0) Sair" << endl << "(1) Corrigir" << endl << "(2) Ignorar" << endl << "(3) Selecionar uma Palavra Semelhante" << endl << "(4) Adicionar ao Dicionario" << endl;
+
+            cout << endl << "Digite uma opcao:" << endl; 
+            cout << "\t(1) Corrigir" << endl;
+            cout << "\t(2) Ignorar" << endl;
+            cout << "\t(3) Selecionar uma Palavra Semelhante" << endl;
+            cout << "\t(4) Adicionar ao Dicionario" << endl;
             cout << "Opcao: ";
             cin >> Opcao;
 
-            if (Opcao == 1) {
-                T.AlterarPalavra(TextWords, *it);
-                cout << "Palavra alterada com sucesso!" << endl;     
-                return;
-                
-            }
-            else if (Opcao == 3) {
+            switch(Opcao) {
 
-                // Descobrimos as palavras semelhantes
-                D.setSemelhantes(*it);
-
-                list<Palavra> Semelhante = D.getSemelhantes();                                
-            
-                cout << "Lista de Palavras Semelhantes: ";
-                D.MostrarSemelhantes();
-
-                int Resposta;
-                cout << "Deseja selecionar uma Palavra Semelhante?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
-                cin >> Resposta;
-                
-                if(Resposta == 1){
+                case 1: {
                     T.AlterarPalavra(TextWords, *it);
                     cout << "Palavra alterada com sucesso!" << endl;
-                }                         
+                    break;
+                }
+                case 2: {
+                    cout << "Palavra ignorada" << endl;
+                    break;
+                }
+                case 3: {
+                    // Descobrimos as palavras semelhantes
+                    D.setSemelhantes(*it);
+
+                    list<Palavra> Semelhante = D.getSemelhantes();                                
                 
-            }
-            else if (Opcao == 4) {
-                D.InserirPalavra(*it);
-                cout << "Palavra Adicionada!" << endl;
+                    cout << "Lista de Palavras Semelhantes: ";
+                    D.MostrarSemelhantes();
+
+                    int Resposta;
+                    cout << "Deseja selecionar uma Palavra Semelhante?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
+                    cin >> Resposta;
+                    
+                    if(Resposta == 1){
+                        T.AlterarPalavra(TextWords, *it);
+                        cout << "Palavra alterada com sucesso!" << endl;
+                    }
+                    break;
+                }
+                case 4: {
+                    D.InserirPalavra(*it);
+                    cout << "Palavra Adicionada!" << endl;                   
+                    break;
+                }
             }
         }
     }
+    
 }

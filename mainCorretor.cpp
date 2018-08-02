@@ -18,8 +18,6 @@ int main() {
     ifstream Arquivo_Dicionario("dic.txt");
     cout << "Inserindo palavras..." << endl;
     D.InserirPalavras(Arquivo_Dicionario);
-    // cout << "Imprimindo palavras..." << endl;
-    // D.ImprimirPalavras();
 
     string Nome_Texto;
     cout << "Digite o nome do arquivo texto: ";
@@ -28,9 +26,6 @@ int main() {
     T.setNomeArquivo(Nome_Texto);
     T.CarregarTexto();
 
-    // T.ImprimirTexto();
-
-    // C.Compara(T, D);
 
     int Opcao = -1;
 
@@ -41,8 +36,8 @@ int main() {
         cout << "Digite uma opcao do Corretor:" << endl;
         cout << "\t(0) Sair" << endl;
         cout << "\t(1) Comparar Texto e Dicionario" << endl;
-        cout << "\t(2) Mexer no Dicionario" << endl;
-        cout << "\t(3) Mexer no Texto" << endl;        
+        cout << "\t(2) Gerenciar Dicionario" << endl;
+        cout << "\t(3) Gerenciar Texto" << endl;        
         
         cout << "Opcao: ";
         cin >> Opcao;
