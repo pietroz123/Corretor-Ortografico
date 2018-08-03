@@ -40,7 +40,7 @@ void Arvore::MostraFbs(No *N) {
     MostraFbs(N->Filho_Esquerdo);
     MostraFbs(N->Filho_Direito);
 }
-int Arvore::altura(No *N) {
+int altura(No *N) {
     if (N == NULL)  return 0;
     int He = altura(N->Filho_Esquerdo); // He = Altura Esquerda
     int Hd = altura(N->Filho_Direito);  // Hd = Altura Direita
@@ -49,7 +49,7 @@ int Arvore::altura(No *N) {
     else
         return He + 1;
 }
-int Arvore::Fb(No *N) {
+int Fb(No *N) {
     return altura(N->Filho_Direito) - altura(N->Filho_Esquerdo);
 }
 void Arvore::AtualizaFbs(No *N) {
@@ -137,7 +137,7 @@ No *RotacaoRR(No *A) {
     return B;
 }
 // Inserção
-No *Arvore::Inserir_Privado(No *N, Palavra P) {
+No *Inserir_Privado(No *N, Palavra P) {
     if (N == NULL) {
         No *Novo = new No;
         Novo->Filho_Esquerdo = Novo->Filho_Direito = NULL;
@@ -189,7 +189,7 @@ void Arvore::Inserir(Palavra P) {
 
 
 // Remoção
-void Arvore::Remover() {
+void Arvore::Remover(Palavra P) {
 
 }
 

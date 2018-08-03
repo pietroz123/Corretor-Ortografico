@@ -61,6 +61,7 @@ void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
 void Dicionario::setSemelhantes(Palavra &P) {
     Dicionario::setSemelhantes_Privado(Palavras_Do_Dicionario.getPrimeiro(), P);
 }
+// Passar a Palavra e a Lista???
 
 void Dicionario::MostrarSemelhantes() {
 
