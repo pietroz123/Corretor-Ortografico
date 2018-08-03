@@ -41,6 +41,7 @@ class Dicionario{
 
         // Funções Auxiliares
         list<Palavra> getSemelhantes();
+        void GravarDicionario();
 };
 
 

@@ -31,12 +31,12 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             // Coloca a palavra errada na lista de Erros do Corretor
             Erros.push_back(*it);
 
-            cout << endl<< "Deseja continuar?"<< endl;
-            cout << "\t(1) SIM" << endl << "\t(2) NAO" << endl << "Opcao: ";
-            cin >> Opcao;
+            // cout << endl<< "Deseja continuar?"<< endl;
+            // cout << "\t(1) SIM" << endl << "\t(2) NAO" << endl << "Opcao: ";
+            // cin >> Opcao;
 
-            if(Opcao == 2)
-                return;
+            // if(Opcao == 2)
+            //     return;
 
             // Imprime a palavra anterior e a próxima
             cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
@@ -49,6 +49,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             ImprimeContexto(TextWords.begin(), it, TextWords.end());         
 
             cout << endl << "Digite uma opcao:" << endl; 
+            cout << "\t(0) Sair" << endl;
             cout << "\t(1) Corrigir" << endl;
             cout << "\t(2) Ignorar" << endl;
             cout << "\t(3) Selecionar uma Palavra Semelhante" << endl;
@@ -58,6 +59,10 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
 
             switch(Opcao) {
 
+                case 0: {
+                    return;
+                    break;
+                }
                 case 1: {
                     T.AlterarPalavra(TextWords, *it);
                     cout << "Palavra alterada com sucesso!" << endl;

@@ -34,7 +34,7 @@ bool Arvore::Vazia() {
 }
 
 // Funções Auxiliares para o Fator de Balanceamento (Fb = Hd - He)
-void Arvore::MostraFbs(No *N) {
+void MostraFbs(No *N) {
     if (N == NULL)  return;
     cout << N->P.getPalavra() << " = " << N->Fb << endl;
     MostraFbs(N->Filho_Esquerdo);
@@ -52,7 +52,7 @@ int altura(No *N) {
 int Fb(No *N) {
     return altura(N->Filho_Direito) - altura(N->Filho_Esquerdo);
 }
-void Arvore::AtualizaFbs(No *N) {
+void AtualizaFbs(No *N) {
     if (N == NULL)  return;
     N->Fb = Fb(N);
     AtualizaFbs(N->Filho_Esquerdo);

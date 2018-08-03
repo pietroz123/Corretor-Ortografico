@@ -141,13 +141,7 @@ int main() {
         }
     }
 
-    ofstream Texto_Original;
-    Texto_Original.open(Nome_Texto, ofstream::out);  
-    T.GravarTexto(Texto_Original);
-
-    // ofstream Dicionario_Atualizado;
-    // Dicionario_Atualizado.open( , ofstream::out);  
-    // T.GravarTexto(Dicionario_Atualizado);
+    T.GravarTextoOriginal();
 
     return 0;
 }

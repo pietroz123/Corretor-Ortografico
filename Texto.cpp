@@ -74,6 +74,19 @@ void Texto::GravarTexto() {
     Arquivo.close();
 
 }
+void Texto::GravarTextoOriginal() {
+
+    ofstream Original;
+    Original.open(Nome_Arquivo_Texto, ofstream::out);
+
+    list<Palavra>::iterator it;
+    for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++)
+        Original << *it << " ";
+
+    Original.close();
+    
+}
+
 
 
 list<Palavra> Texto::getPalavrasTexto() {

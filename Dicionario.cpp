@@ -4,26 +4,12 @@
 
 void Dicionario::InserirPalavras(ifstream &arquivo) {
 
-    // list<Palavra> words;
     Palavra temp;
     
     while (arquivo >> temp)
-        // words.push_back(temp);
         Palavras_Do_Dicionario.Inserir(temp);
     
     arquivo.close();
-
-    // list<Palavra>::iterator it;
-
-    // cout << "Palavras do arquivo texto dic.txt: ";
-    // for (it = words.begin(); it != words.end(); it++)
-    //     cout << *it << " ";
-    // cout << endl;
-
-    // cout << "Inserindo na arvore..." << endl;
-    // for (it = words.begin(); it != words.end(); it++)
-    //     Palavras_Do_Dicionario.Inserir(*it);
-    // cout << endl;
 
 }
 
@@ -66,7 +52,7 @@ void Dicionario::setSemelhantes(Palavra &P) {
 void Dicionario::MostrarSemelhantes() {
 
     if (Palavras_Do_Dicionario.Vazia()) {
-        cout << "Nao foram inseridas palavras na arvore!" << endl;
+        cout << "Nao foram inseridas palavras no Dicionario!" << endl;
         return;
     }
 
@@ -75,5 +61,17 @@ void Dicionario::MostrarSemelhantes() {
         cout << *it << " ";
 
     cout << endl;
+
+}
+
+
+void Dicionario::GravarDicionario() {
+
+    ofstream Original;
+    Original.open("dic.txt", ofstream::out);
+
+    
+
+    Original.close();
 
 }

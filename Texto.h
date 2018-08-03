@@ -39,6 +39,7 @@ class Texto {
         // → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original);
         void GravarTexto(ofstream &Arquivo);
         void GravarTexto();
+        void GravarTextoOriginal();
 
         // Funções Auxiliares
         //Retorna a Lista com todas as Palavras do Texto
