@@ -32,7 +32,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             Erros.push_back(*it);
 
             cout << endl<< "Deseja continuar?"<< endl;
-            cout << "\t(1) SIM (2) NAO" << endl;
+            cout << "\t(1) SIM" << endl << "\t(2) NAO" << endl << "Opcao: ";
             cin >> Opcao;
 
             if(Opcao == 2)

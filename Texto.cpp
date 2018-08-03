@@ -94,4 +94,5 @@ void Texto::AlterarPalavra(list<Palavra> &Lista, Palavra &P) {
             break;
         }
     }
+
 }

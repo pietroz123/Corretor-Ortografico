@@ -39,8 +39,9 @@ int main() {
         cout << "\t(2) Gerenciar Dicionario" << endl;
         cout << "\t(3) Gerenciar Texto" << endl;        
         
-        cout << "Opcao: ";
+        cout << "Opcao (Corretor): ";
         cin >> Opcao;
+
 
         switch(Opcao) {
 
@@ -61,7 +62,7 @@ int main() {
                     cout << "\t(1) Imprimir Dicionario" << endl;
                     cout << "\t(2) Buscar Palavra no Dicionario" << endl;
 
-                    cout << "Opcao: ";
+                    cout << "Opcao (Dicionario): ";
                     cin >> Opcao_Dicionario;
                     
                     switch(Opcao_Dicionario) {
@@ -100,7 +101,7 @@ int main() {
                     cout << "\t(1) Imprimir Texto" << endl;
                     cout << "\t(2) Buscar Palavra no Texto" << endl;
 
-                    cout << "Opcao: ";
+                    cout << "Opcao (Texto): ";
                     cin >> Opcao_Texto;
 
                     switch(Opcao_Texto) {
@@ -132,13 +133,21 @@ int main() {
     while(Opcao != 2){
         
         cout << endl;
-        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
+        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
         cin >> Opcao;
         if (Opcao == 1){
             T.GravarTexto();   
             cout << "Texto gravado com sucesso!" << endl;
         }
     }
+
+    ofstream Texto_Original;
+    Texto_Original.open(Nome_Texto, ofstream::out);  
+    T.GravarTexto(Texto_Original);
+
+    // ofstream Dicionario_Atualizado;
+    // Dicionario_Atualizado.open( , ofstream::out);  
+    // T.GravarTexto(Dicionario_Atualizado);
 
     return 0;
 }
