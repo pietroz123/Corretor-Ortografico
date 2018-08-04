@@ -30,7 +30,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
     
         // Verifica se a Palavra está no Dicionario      
-        // Caso não esteja : 
+        // Caso não esteja: 
         if( D.Consulta(*it) == false ) {
 
             int Opcao;
@@ -38,14 +38,10 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             // Coloca a palavra errada na lista de Erros do Corretor
             Erros.push_back(*it);
 
-            // Imprime a palavra anterior e a próxima
             cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
             
+            // Imprime o Contexto da palavra (anterior - atual - próxima)
             cout << "Contexto da Palavra:" << endl;
-  
-            list<Palavra>::iterator Anterior = prev(it, 1);       
-            list<Palavra>::iterator Proximo = next(it, 1);
-
             ImprimeContexto(TextWords.begin(), it, TextWords.end());         
 
             cout << endl << "Digite uma opcao:" << endl; 
@@ -74,8 +70,8 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                     break;
                 }
                 case 3: {
-                    // Descobrimos as palavras semelhantes
-                    D.setSemelhantes(*it);                              
+
+                    D.setSemelhantes(*it); // Descobrimos as palavras semelhantes
                 
                     cout << "Lista de Palavras Semelhantes: ";
                     D.MostrarSemelhantes();
