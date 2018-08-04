@@ -69,20 +69,7 @@ No *RotacaoRL(No *A) {
     C->Filho_Esquerdo = A;
     C->Filho_Direito = B;    
     B->Filho_Esquerdo = h3;
-    A->Filho_Direito = h2; 
-
-    // if( C->Fb == -1 ) {
-    //     A->Fb = 0;
-    //     B->Fb = 1;
-    //     C->Fb = 0;
-    // } else if( C->Fb == 1 ) {
-    //     A->Fb = -1;
-    //     B->Fb = 0;
-    //     C->Fb = 0;
-    // } else { // C->bal == 0
-    //     A->Fb = 0;
-    //     B->Fb = 0;
-    // }           
+    A->Filho_Direito = h2;   
 
     return C;   
 }
@@ -97,19 +84,6 @@ No *RotacaoLR(No *A) {
     B->Filho_Direito = h2;
     A->Filho_Esquerdo = h3;
 
-    // if( C->Fb == -1 ) {
-    //     A->Fb = 1;
-    //     B->Fb = 0;
-    //     C->Fb = 0;
-    // } else if( C->Fb == 1 ) {
-    //     A->Fb = 0;
-    //     B->Fb = -1;
-    //     C->Fb = 0;
-    // } else { // C->bal == 0
-    //     A->Fb = 0;
-    //     B->Fb = 0;
-    // }   
-    
     return C;
 }
 No *RotacaoLL(No *A) {
@@ -119,9 +93,6 @@ No *RotacaoLL(No *A) {
     B->Filho_Direito= A;
     A->Filho_Esquerdo= h2;
 
-    // A->Fb = 0;
-    // B->Fb = 0;
-
     return B;    
 }
 No *RotacaoRR(No *A) {
@@ -130,9 +101,6 @@ No *RotacaoRR(No *A) {
 
     B->Filho_Esquerdo = A;
     A->Filho_Direito = h2;
-
-    // A->Fb = 0;
-    // B->Fb = 0;
 
     return B;
 }
@@ -151,19 +119,7 @@ No *Inserir_Privado(No *N, Palavra P) {
     else
         return N;
 
-    N->Fb = Fb(N);
-
-    // if(N->Fb > 1)
-    //     if(P > N->Filho_Direito->P)
-    //         return RotacaoRR(N);
-    //     else 
-    //         return RotacaoRL(N);
-    
-    // else if(N->Fb < -1)
-    //     if(P < N->Filho_Esquerdo->P)
-    //         return RotacaoLL(N);
-    //     else 
-    //         return RotacaoLR(N);                                                    
+    N->Fb = Fb(N);                                                
 
     // Caso Rotação à Esquerda (RR)
     if (N->Fb > 1 && P > N->Filho_Direito->P)
@@ -191,6 +147,56 @@ void Arvore::Inserir(Palavra P) {
 // Remoção
 void Arvore::Remover(Palavra P) {
 
+}
+No *Minimo(No *N) {
+    while (N->Filho_Esquerdo)
+        N = N->Filho_Esquerdo;
+    return N;
+}
+No *Remover_Privado(No *N, Palavra P) {
+    if (N == NULL)
+        return NULL;
+    else if (P < N->P)              // vá para a sub-árvore direita
+        N->Filho_Esquerdo = Remover_Privado(N->Filho_Esquerdo, P);
+    else if (P > N->P)              // vá para a sub-árvore esquerda
+        N->Filho_Direito = Remover_Privado(N->Filho_Direito, P);
+    else {                                              // atualize os dados (dados.valor == N->dados.valor)
+        if (!N->Filho_Esquerdo) {
+            No *direita = N->Filho_Direito;
+            free(N);
+            return direita;
+        }
+        if (!N->Filho_Direito) {
+            No *esquerda = N->Filho_Esquerdo;
+            free(N);
+            return esquerda;
+        }
+        N->P = Minimo(N->Filho_Direito)->P;
+        N->Filho_Direito = Remover_Privado(N->Filho_Direito, N->P);
+    }
+
+    N->Fb = Fb(N);
+
+    // Caso Rotação RR
+    if (N->Fb > 1 && Fb(N->Filho_Direito) >= 0)
+        return RotacaoRR(N);
+
+    // Caso Rotação LL
+    if (N->Fb < -1 && Fb(N->Filho_Esquerdo) <= 0)
+        return RotacaoLL(N);
+
+    // Caso Rotação LR
+    if (N->Fb < -1 && Fb(N->Filho_Esquerdo) > 0)
+        return RotacaoLR(N);
+
+    // Caso Rotação RL
+    if (N->Fb > 1 && Fb(N->Filho_Direito) < 0)
+        return RotacaoRL(N);    
+
+    return N;   
+}
+void Arvore::Remover(Palavra P) {
+    Raiz = Remover_Privado(Raiz, P);
 }
 
 

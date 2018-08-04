@@ -141,7 +141,9 @@ int main() {
         }
     }
 
+    cout << "Gravando Arquivo Texto Original..." << endl;
     T.GravarTextoOriginal();
+    cout << "Gravando Dicionario..." << endl;
     D.GravarDicionario();
 
     return 0;
