@@ -136,7 +136,7 @@ int main() {
         cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
         cin >> Opcao;
         if (Opcao == 1){
-            T.GravarTexto();   
+            T.GravarTextoDiferente();   
             cout << "Texto gravado com sucesso!" << endl;
         }
     }

@@ -34,18 +34,17 @@ class Texto {
         bool Buscar(Palavra &);
 
         // → Permite alterar uma Palavra;
-        
+        void AlterarPalavra(list<Palavra> &lista, Palavra &P);        
 
         // → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original);
-        void GravarTexto(ofstream &Arquivo);
-        void GravarTexto();
+        void GravarTextoArquivo(ofstream &Arquivo);
+        void GravarTextoDiferente();
         void GravarTextoOriginal();
 
         // Funções Auxiliares
         //Retorna a Lista com todas as Palavras do Texto
         list<Palavra> getPalavrasTexto();
-        void AlterarPalavra(list<Palavra>::iterator &it);
-        void AlterarPalavra(list<Palavra> &lista, Palavra &P);
+
 
 };
 

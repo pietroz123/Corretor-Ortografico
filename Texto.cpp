@@ -49,7 +49,7 @@ bool Texto::Buscar(Palavra &P) {
 }
 
 
-void Texto::GravarTexto(ofstream &Arquivo) {
+void Texto::GravarTextoArquivo(ofstream &Arquivo) {
     
     list<Palavra>::iterator it;
     for (it = Palavras_Texto.begin(); it != Palavras_Texto.end(); it++)
@@ -58,7 +58,7 @@ void Texto::GravarTexto(ofstream &Arquivo) {
     Arquivo.close();
 
 }
-void Texto::GravarTexto() {
+void Texto::GravarTextoDiferente() {
     
     string Nome;
     cout << "Digite o nome do arquivo que quer abrir: ";

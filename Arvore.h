@@ -38,7 +38,7 @@ class Arvore {
         void Inserir(Palavra);
         void Remover(Palavra);
         No* Busca(Palavra);
-        void PreOrdem(No*); // EmOrdem!!!
+        void EmOrdem(No*);
         No *getPrimeiro();
         // void MostraFbs(No*);
         // void AtualizaFbs(No*);

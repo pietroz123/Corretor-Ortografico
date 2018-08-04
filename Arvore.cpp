@@ -1,12 +1,9 @@
-/*Bianca Gomes Rodrigues
-  Pietro Zuntini Bonfim*/
-
 #include "Arvore.h"
+#include "Palavra.h"
 
 #include <stack>
 #include <queue>
 
-#include "Palavra.h"
 
 // Construtor
 Arvore::Arvore() {
@@ -25,6 +22,7 @@ Arvore::~Arvore() {
     Destrutor_Privado(Raiz);
 }
 
+
 // Vazia
 bool Arvore::Vazia() {
     if (Raiz == NULL)
@@ -33,13 +31,8 @@ bool Arvore::Vazia() {
         return false;
 }
 
+
 // Funções Auxiliares para o Fator de Balanceamento (Fb = Hd - He)
-void MostraFbs(No *N) {
-    if (N == NULL)  return;
-    cout << N->P.getPalavra() << " = " << N->Fb << endl;
-    MostraFbs(N->Filho_Esquerdo);
-    MostraFbs(N->Filho_Direito);
-}
 int altura(No *N) {
     if (N == NULL)  return 0;
     int He = altura(N->Filho_Esquerdo); // He = Altura Esquerda
@@ -52,12 +45,7 @@ int altura(No *N) {
 int Fb(No *N) {
     return altura(N->Filho_Direito) - altura(N->Filho_Esquerdo);
 }
-void AtualizaFbs(No *N) {
-    if (N == NULL)  return;
-    N->Fb = Fb(N);
-    AtualizaFbs(N->Filho_Esquerdo);
-    AtualizaFbs(N->Filho_Direito);
-}
+
 
 // Rotações
 No *RotacaoRL(No *A) {
@@ -141,13 +129,11 @@ No *Inserir_Privado(No *N, Palavra P) {
 }
 void Arvore::Inserir(Palavra P) {
     Raiz = Inserir_Privado(Raiz, P);
+    nFilhos++;
 }
 
 
 // Remoção
-void Arvore::Remover(Palavra P) {
-
-}
 No *Minimo(No *N) {
     while (N->Filho_Esquerdo)
         N = N->Filho_Esquerdo;
@@ -197,6 +183,7 @@ No *Remover_Privado(No *N, Palavra P) {
 }
 void Arvore::Remover(Palavra P) {
     Raiz = Remover_Privado(Raiz, P);
+    nFilhos--;
 }
 
 
@@ -216,11 +203,11 @@ No *Arvore::Busca(Palavra P) {
 
 
 // Percurso
-void Arvore::PreOrdem(No *N) {
+void Arvore::EmOrdem(No *N) {
     if (N == NULL)  return;
-    cout << N->P.getPalavra() << " ";
-    PreOrdem(N->Filho_Esquerdo);
-    PreOrdem(N->Filho_Direito);
+    cout << N->P << " ";
+    EmOrdem(N->Filho_Esquerdo);
+    EmOrdem(N->Filho_Direito);
 }
 
 

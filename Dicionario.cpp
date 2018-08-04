@@ -21,7 +21,7 @@ list<Palavra> Dicionario::getSemelhantes(){
 
 void Dicionario::ImprimirPalavras() {
     cout << "Imprimindo arvore..." << endl;
-    Palavras_Do_Dicionario.PreOrdem(Palavras_Do_Dicionario.getPrimeiro());
+    Palavras_Do_Dicionario.EmOrdem(Palavras_Do_Dicionario.getPrimeiro());
     cout << endl;
 }
 

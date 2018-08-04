@@ -31,13 +31,6 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             // Coloca a palavra errada na lista de Erros do Corretor
             Erros.push_back(*it);
 
-            // cout << endl<< "Deseja continuar?"<< endl;
-            // cout << "\t(1) SIM" << endl << "\t(2) NAO" << endl << "Opcao: ";
-            // cin >> Opcao;
-
-            // if(Opcao == 2)
-            //     return;
-
             // Imprime a palavra anterior e a próxima
             cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
             
@@ -74,9 +67,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 }
                 case 3: {
                     // Descobrimos as palavras semelhantes
-                    D.setSemelhantes(*it);
-
-                    list<Palavra> Semelhante = D.getSemelhantes();                                
+                    D.setSemelhantes(*it);                              
                 
                     cout << "Lista de Palavras Semelhantes: ";
                     D.MostrarSemelhantes();
@@ -85,7 +76,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                     cout << "Deseja selecionar uma Palavra Semelhante?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
                     cin >> Resposta;
                     
-                    if(Resposta == 1){
+                    if(Resposta == 1) {
                         T.AlterarPalavra(TextWords, *it);
                         cout << "Palavra alterada com sucesso!" << endl;
                     }
