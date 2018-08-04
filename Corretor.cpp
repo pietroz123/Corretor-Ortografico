@@ -1,3 +1,10 @@
+
+/* Número do Grupo: 9
+*  Membros:
+*    → Bianca Gomes Rodrigues    RA: 743512
+*    → Pietro Zuntini Bonfim     RA: 743588
+*/
+
 #include "Corretor.h"
 
 void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {

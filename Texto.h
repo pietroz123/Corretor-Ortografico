@@ -1,12 +1,16 @@
 
-/*
- - Classe Texto:
-    → Contém uma LISTA de Palavras;
-    → Contém nome do ARQUIVO original do Texto;
-    → Permite carregar um Texto a partir de um ARQUIVO;
-    → Permite percorrer o texto, palavra por palavra;
-    → Permite alterar uma Palavra;
-    → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original).
+/* Número do Grupo: 9
+*  Membros:
+*    → Bianca Gomes Rodrigues    RA: 743512
+*    → Pietro Zuntini Bonfim     RA: 743588
+*
+* - Classe Texto:
+*    → Contém uma LISTA de Palavras;
+*    → Contém nome do ARQUIVO original do Texto;
+*    → Permite carregar um Texto a partir de um ARQUIVO;
+*    → Permite percorrer o texto, palavra por palavra;
+*    → Permite alterar uma Palavra;
+*    → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original).
 */
 
 #ifndef TEXTO_H

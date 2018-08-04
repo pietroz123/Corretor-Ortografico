@@ -1,9 +1,19 @@
+
+/* Número do Grupo: 9
+*  Membros:
+*    → Bianca Gomes Rodrigues    RA: 743512
+*    → Pietro Zuntini Bonfim     RA: 743588
+*/
+
 #include "Palavra.h"
 
+// Construtor
 Palavra::Palavra(string P) {
     palavra = P;
 }
 
+
+// Métodos Get e Set
 string Palavra::getPalavra() {
     return palavra;
 }
@@ -11,6 +21,8 @@ void Palavra::setPalavra(string Palavra) {
     palavra = Palavra;
 }
 
+
+// → Verifica se duas Palavras são semelhantes
 bool Palavra::Semelhante(Palavra &p2){
     
     string P1 = palavra;
@@ -23,7 +35,7 @@ bool Palavra::Semelhante(Palavra &p2){
     return true;    
 }
 
-
+// Operador > sobrecarregado
 bool operator>(Palavra &p1, Palavra &p2){
 
     string P1 = p1.getPalavra();
@@ -34,6 +46,7 @@ bool operator>(Palavra &p1, Palavra &p2){
     return false;
 }
 
+// Operador < sobrecarregado
 bool operator<(Palavra &p1, Palavra &p2){
 
     string P1 = p1.getPalavra();
@@ -44,6 +57,7 @@ bool operator<(Palavra &p1, Palavra &p2){
     return false;
 }
 
+// Operador == sobrecarregado
 bool operator==(Palavra &p1, Palavra &p2){
 
     string P1 = p1.getPalavra();
@@ -54,11 +68,13 @@ bool operator==(Palavra &p1, Palavra &p2){
     return false;
 }
 
+// Operador << sobrecarregado (SAIDA)
 ostream & operator << (ostream &saida, Palavra &P) {
     saida << P.getPalavra();
     return saida;
 }
 
+// Operador >> sobrecarregado (ENTRADA)
 istream & operator >> (istream &entrada, Palavra &P) {
     string Palavra;
     entrada >> Palavra;

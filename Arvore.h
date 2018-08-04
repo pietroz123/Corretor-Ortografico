@@ -1,11 +1,15 @@
 
-/*
-→ Classe Arvore
-- Deve ter na interface apenas os métodos:
-	→ Vazia
-	→ Insere
-	→ Remove
-	→ Busca
+/* Número do Grupo: 9
+*  Membros:
+*    → Bianca Gomes Rodrigues    RA: 743512
+*    → Pietro Zuntini Bonfim     RA: 743588
+*
+* → Classe Arvore
+* - Deve ter na interface apenas os métodos:
+*	→ Vazia
+*	→ Insere
+*	→ Remove
+*	→ Busca
 */
 
 
