@@ -44,8 +44,7 @@ class Arvore {
         No* Busca(Palavra);
         void EmOrdem(No*);
         No *getPrimeiro();
-        // void MostraFbs(No*);
-        // void AtualizaFbs(No*);
+        
 };
 
 #endif

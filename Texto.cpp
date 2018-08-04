@@ -99,6 +99,9 @@ void Texto::GravarTextoOriginal() {
 list<Palavra> Texto::getPalavrasTexto() {
     return Palavras_Texto;
 }
+void Texto::setPalavrasTexto(list<Palavra> &Lista) {
+    Palavras_Texto = Lista;
+}
 
 void Texto::AlterarPalavra(list<Palavra> &Lista, Palavra &P) {
 
@@ -115,4 +118,10 @@ void Texto::AlterarPalavra(list<Palavra> &Lista, Palavra &P) {
         }
     }
 
+}
+void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
+    Palavra P2;
+    cout << "Digite a Palavra desejada: ";
+    cin >> P2;
+    *it = P2;
 }
