@@ -38,7 +38,6 @@ class Texto {
         bool Buscar(Palavra &);
 
         // → Permite alterar uma Palavra;
-        void AlterarPalavra(list<Palavra> &lista, Palavra &P); 
         void AlterarPalavra(list<Palavra>::iterator &it);       
 
         // → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original);

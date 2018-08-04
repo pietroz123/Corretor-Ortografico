@@ -7,11 +7,10 @@
 
 #include "Texto.h"
 
-
+// → Permite carregar um Texto a partir de um ARQUIVO;
 void Texto::setNomeArquivo(string Nome) {
     Nome_Arquivo_Texto = Nome;
 }
-
 void Texto::CarregarTexto() {
 
     ifstream Arquivo;
@@ -32,7 +31,7 @@ void Texto::CarregarTexto() {
 
 }
 
-
+// → Permite percorrer o texto, palavra por palavra;
 void Texto::ImprimirTexto() {
 
     list<Palavra>::iterator it;
@@ -42,7 +41,6 @@ void Texto::ImprimirTexto() {
     cout << endl;
 
 }
-
 bool Texto::Buscar(Palavra &P) {
 
     list<Palavra>::iterator it;
@@ -56,6 +54,7 @@ bool Texto::Buscar(Palavra &P) {
 }
 
 
+// → Permite GRAVAR o Texto em um ARQUIVO (Não necessariamente o Original);
 void Texto::GravarTextoArquivo(ofstream &Arquivo) {
     
     list<Palavra>::iterator it;
@@ -95,7 +94,7 @@ void Texto::GravarTextoOriginal() {
 }
 
 
-
+// Métodos Get e Set
 list<Palavra> Texto::getPalavrasTexto() {
     return Palavras_Texto;
 }
@@ -103,6 +102,8 @@ void Texto::setPalavrasTexto(list<Palavra> &Lista) {
     Palavras_Texto = Lista;
 }
 
+
+// → Permite alterar uma Palavra;
 void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
     Palavra P2;
     cout << "Digite a Palavra desejada: ";
