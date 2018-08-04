@@ -36,12 +36,12 @@ class Dicionario{
 
         // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
         void setSemelhantes(Palavra &P);
-        void setSemelhantes_Privado(No *N, Palavra &P);
         void MostrarSemelhantes();
-
-        // Funções Auxiliares
         list<Palavra> getSemelhantes();
+
+        // → Gravar Dicionario Original
         void GravarDicionario();
+        
 };
 
 

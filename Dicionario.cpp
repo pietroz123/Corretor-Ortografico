@@ -36,19 +36,18 @@ void Dicionario::InserirPalavra(Palavra &P) {
 }
 
 
-
-void Dicionario::setSemelhantes_Privado(No *N, Palavra &P) {
+void setSemelhantes_Privado(list<Palavra> &Semelhantes, No *N, Palavra &P) {
     if (N == NULL)  return;
     if ((N->P).Semelhante(P)) {
         Semelhantes.push_back(N->P);
     }
-    setSemelhantes_Privado(N->Filho_Esquerdo, P);
-    setSemelhantes_Privado(N->Filho_Direito, P);
+    setSemelhantes_Privado(Semelhantes, N->Filho_Esquerdo, P);
+    setSemelhantes_Privado(Semelhantes, N->Filho_Direito, P);
 }
 void Dicionario::setSemelhantes(Palavra &P) {
-    Dicionario::setSemelhantes_Privado(Palavras_Do_Dicionario.getPrimeiro(), P);
+    Semelhantes.clear();
+    setSemelhantes_Privado(Semelhantes, Palavras_Do_Dicionario.getPrimeiro(), P);
 }
-// Passar a Palavra e a Lista???
 
 void Dicionario::MostrarSemelhantes() {
 
