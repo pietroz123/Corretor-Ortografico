@@ -66,7 +66,6 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                 }
                 case 1: {
                     T.AlterarPalavra(it);
-                    // T.AlterarPalavra(TextWords, *it);
                     cout << "Palavra alterada com sucesso!" << endl;
                     break;
                 }
@@ -86,7 +85,6 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
                     cin >> Resposta;
                     
                     if(Resposta == 1) {
-                        // T.AlterarPalavra(TextWords, *it);
                         T.AlterarPalavra(it);
                         cout << "Palavra alterada com sucesso!" << endl;
                     }
