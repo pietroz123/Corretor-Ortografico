@@ -1,5 +1,6 @@
 #include "Dicionario.h"
 #include <vector>
+#include <stack>
 
 
 void Dicionario::InserirPalavras(ifstream &arquivo) {
@@ -64,13 +65,34 @@ void Dicionario::MostrarSemelhantes() {
 
 }
 
+void IterarDicionario_EmOrdem(No *Raiz, ofstream &Original) {
+    
+    if (Raiz == NULL)   return;
 
+    stack<No*> s;
+
+    No *Atual = Raiz;
+    while ( !s.empty() || Atual != NULL) {
+
+        while (Atual != NULL) {
+            s.push(Atual);
+            Atual = Atual->Filho_Esquerdo;
+        }
+
+        Atual = s.top();
+        Original << Atual->P << endl;
+        s.pop();
+        Atual = Atual->Filho_Direito;
+
+    }
+
+}
 void Dicionario::GravarDicionario() {
 
     ofstream Original;
     Original.open("dic.txt", ofstream::out);
 
-    
+    IterarDicionario_EmOrdem(Palavras_Do_Dicionario.getPrimeiro(), Original);
 
     Original.close();
 

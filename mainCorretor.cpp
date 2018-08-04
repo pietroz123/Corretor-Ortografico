@@ -142,6 +142,7 @@ int main() {
     }
 
     T.GravarTextoOriginal();
+    D.GravarDicionario();
 
     return 0;
 }

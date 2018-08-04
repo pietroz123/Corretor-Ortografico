@@ -16149,6 +16149,7 @@ vocal
 vocalista
 vocação
 vocações
+voce
 vocábulo
 vocábulos
 vodka
