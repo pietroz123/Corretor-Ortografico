@@ -66,6 +66,7 @@ bool operator==(Palavra &p1, Palavra &p2){
     if (P1 == P2)
         return true;
     return false;
+
 }
 
 // Operador << sobrecarregado (SAIDA)

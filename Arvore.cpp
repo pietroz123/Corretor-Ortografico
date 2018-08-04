@@ -25,7 +25,6 @@ void Destrutor_Privado(No *N) {
     delete N;
 }
 Arvore::~Arvore() {
-    cout << "Entrou no destrutor" << endl;
     Destrutor_Privado(Raiz);
 }
 

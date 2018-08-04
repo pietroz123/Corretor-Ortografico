@@ -34,8 +34,6 @@ class Palavra {
 
 bool operator>(Palavra &, Palavra &);
 bool operator<(Palavra &, Palavra &);
-
-// → Operador == sobrecarregado para verificar se duas Palavras são idênticas.
 bool operator==(Palavra &, Palavra &);
 ostream & operator << (ostream &saida, Palavra &P);
 istream & operator >> (istream &entrada, Palavra &P);

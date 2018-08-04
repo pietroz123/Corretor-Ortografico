@@ -6713,6 +6713,7 @@ fiação
 fibra
 fibras
 fibrose
+fica
 ficha
 fichas
 ficheiro
@@ -10527,6 +10528,7 @@ namorados
 namoro
 namoros
 nana
+nao
 napa
 napoleão
 narciso
@@ -12019,6 +12021,7 @@ ponto
 pontos
 pontuacao
 pontualidade
+pontuar
 pontuação
 pontuações
 pontão
@@ -15689,6 +15692,7 @@ ultrapassagens
 ultras
 ultravioleta
 ultravioletas
+um
 umbigo
 unanimidade
 unha
@@ -16149,6 +16153,7 @@ vocal
 vocalista
 vocação
 vocações
+voce
 vocábulo
 vocábulos
 vodka
