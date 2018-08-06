@@ -13,6 +13,12 @@ void Texto::setNomeArquivo(string Nome) {
 }
 void Texto::CarregarTexto() {
 
+    string Nome_Texto;
+    cout << "Digite o nome do arquivo texto (formato nome.txt): ";
+    cin >> Nome_Texto;
+
+    Nome_Arquivo_Texto = Nome_Texto;
+
     ifstream Arquivo;
     Arquivo.open(Nome_Arquivo_Texto, ifstream::in);
 
@@ -27,6 +33,7 @@ void Texto::CarregarTexto() {
     }
     else{
         cout << "Arquivo inexistente!" << endl;
+        CarregarTexto();
     }
 
 }

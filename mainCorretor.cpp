@@ -26,11 +26,6 @@ int main() {
     cout << "Inserindo palavras..." << endl;
     D.InserirPalavras(Arquivo_Dicionario);
 
-    string Nome_Texto;
-    cout << "Digite o nome do arquivo texto: ";
-    cin >> Nome_Texto;
-
-    T.setNomeArquivo(Nome_Texto);
     T.CarregarTexto();
 
 
