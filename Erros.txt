@@ -1,0 +1,33 @@
+Erro: o
+Numero de vezes: 3
+
+Erro: pietro
+Numero de vezes: 2
+
+Erro: é
+Numero de vezes: 4
+
+Erro: legal.
+Numero de vezes: 1
+
+Erro: a
+Numero de vezes: 1
+
+Erro: bianca
+Numero de vezes: 2
+
+Erro: também.
+Numero de vezes: 1
+
+Erro: otávio
+Numero de vezes: 2
+
+Erro: inteligente.
+Numero de vezes: 1
+
+Erro: da
+Numero de vezes: 2
+
+Erro: e
+Numero de vezes: 1
+

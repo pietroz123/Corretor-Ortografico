@@ -29,6 +29,8 @@ class Corretor {
 
     public:
 		void Compara(Texto &T, Dicionario &D);
+    void GravarErros();
+
 
 };
 

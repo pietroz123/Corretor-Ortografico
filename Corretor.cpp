@@ -57,6 +57,7 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
 
                 case 0: {
                     T.setPalavrasTexto(TextWords);
+                    GravarErros();
                     return;
                     break;
                 }
@@ -95,4 +96,37 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
         }
     }
     
+}
+
+
+int BuscaErro(Palavra &P, list<Palavra> &Erros){
+    int Contador = 0;
+    list<Palavra>::iterator it;
+    for(it = Erros.begin(); it != Erros.end(); it++){
+        if(*it == P){
+            Contador++;
+            Erros.erase(it);
+        }
+
+    }
+
+    return Contador;
+
+}
+
+void Corretor::GravarErros() {
+
+    ofstream Original;
+    Original.open("Erros.txt", ofstream::out);
+
+    int i;
+    
+    list<Palavra>::iterator it;
+    
+    for(it = Erros.begin(); it != Erros.end(); it++){
+        i = BuscaErro(*it, Erros);
+        Original << "Erro: " << *it << endl << "Numero de vezes: " << i << endl << endl;
+    }
+
+    Original.close();
 }
