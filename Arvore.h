@@ -42,7 +42,7 @@ class Arvore {
         void Inserir(Palavra);
         void Remover(Palavra);
         No* Busca(Palavra);
-        void EmOrdem(No*);
+        void EmOrdem();
         No *getPrimeiro();
         
 };

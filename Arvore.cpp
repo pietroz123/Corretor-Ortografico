@@ -209,11 +209,14 @@ No *Arvore::Busca(Palavra P) {
 
 
 // Percurso
-void Arvore::EmOrdem(No *N) {
+void EmOrdem_Privado(No *N) {
     if (N == NULL)  return;
+    EmOrdem_Privado(N->Filho_Esquerdo);
     cout << N->P << " ";
-    EmOrdem(N->Filho_Esquerdo);
-    EmOrdem(N->Filho_Direito);
+    EmOrdem_Privado(N->Filho_Direito);
+}
+void Arvore::EmOrdem() {
+    EmOrdem_Privado(Raiz);
 }
 
 
