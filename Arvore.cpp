@@ -194,17 +194,17 @@ void Arvore::Remover(Palavra P) {
 
 
 // Busca
-No *Arvore::Busca(Palavra P) {
+bool Arvore::Busca(Palavra P) {
     No *Atual = Raiz;
     while (Atual) {
         if (P == Atual->P)
-            return Atual;
+            return true;
         else if (P > Atual->P)
             Atual = Atual ->Filho_Direito;
         else if (P < Atual->P)
             Atual = Atual->Filho_Esquerdo;
     }
-    return NULL;
+    return false;
 }
 
 

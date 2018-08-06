@@ -41,7 +41,7 @@ class Arvore {
         bool Vazia();
         void Inserir(Palavra);
         void Remover(Palavra);
-        No* Busca(Palavra);
+        bool Busca(Palavra);
         void EmOrdem();
         No *getPrimeiro();
         

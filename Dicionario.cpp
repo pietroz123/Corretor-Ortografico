@@ -32,7 +32,7 @@ void Dicionario::ImprimirPalavras() {
 
 // → Consulta de palavras
 bool Dicionario::Consulta(Palavra &P) {
-    return Palavras_Do_Dicionario.Busca(P) != NULL;
+    return Palavras_Do_Dicionario.Busca(P) != false;
 }
 
 
