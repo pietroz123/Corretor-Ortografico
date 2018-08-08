@@ -146,6 +146,10 @@ void Corretor::Compara() {
                     cout << "Palavra Adicionada!" << endl;                   
                     break;
                 }
+                default: {
+                    cout << "Digite uma opcao valida!" << endl;
+                    break;
+                }
             }
         }
     }
