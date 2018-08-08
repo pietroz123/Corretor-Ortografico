@@ -1,11 +1,11 @@
 Erro: o
-Numero de vezes: 3
+Numero de vezes: 1
 
 Erro: pietro
-Numero de vezes: 2
+Numero de vezes: 1
 
-Erro: √©
-Numero de vezes: 4
+Erro: È
+Numero de vezes: 1
 
 Erro: legal.
 Numero de vezes: 1
@@ -14,20 +14,8 @@ Erro: a
 Numero de vezes: 1
 
 Erro: bianca
-Numero de vezes: 2
-
-Erro: tamb√©m.
 Numero de vezes: 1
 
-Erro: ot√°vio
-Numero de vezes: 2
-
-Erro: inteligente.
-Numero de vezes: 1
-
-Erro: da
-Numero de vezes: 2
-
-Erro: e
+Erro: tambÈm.
 Numero de vezes: 1
 

@@ -13,6 +13,7 @@ void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atu
     list<Palavra>::iterator Proximo = next(Atual, 1);
 
     Fim = prev(Fim, 1);
+    // oi teste, funciona?
 
     if(Atual == Inicio)
         cout << "(Inexistente)" << " - " << *Atual << " - " << *Proximo << endl;
