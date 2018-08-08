@@ -26,6 +26,7 @@ class Corretor {
 
     private:
 		list<Palavra> Erros;
+    // oi
 
     public:
 		void Compara(Texto &T, Dicionario &D);
