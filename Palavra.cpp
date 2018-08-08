@@ -1,8 +1,12 @@
 
-/* Número do Grupo: 9
+/* Palavra.cpp
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
+*
+*  Contém as implementações da classe Palavra
 */
 
 #include "Palavra.h"

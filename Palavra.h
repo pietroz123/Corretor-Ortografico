@@ -1,10 +1,12 @@
 
-/* Número do Grupo: 9
-*  Membros:
+/* Palavra.h
+* 
+* Número do Grupo: 9
+* Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
 *
-* Classe Palavra - "Mínimo"
+* Classe Palavra
 *    → Contém ao menos a Palavra;
 *    → Um método que verifique se duas Palavras são semelhantes (começam com as duas mesmas letras);
 *    → Contém operador == sobrecarregado para verificar se duas Palavras são idênticas.

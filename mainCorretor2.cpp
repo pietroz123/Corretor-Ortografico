@@ -1,8 +1,12 @@
 
-/* Número do Grupo: 9
+/* mainCorretor2.cpp
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
+* 
+*  Driver 2
 */
 
 #include <iostream>
@@ -19,8 +23,6 @@ using namespace std;
 int main() {
 
     Corretor C;
-
-    int Opcao = -1;
 
     C.Compara();
 

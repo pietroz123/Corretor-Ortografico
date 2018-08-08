@@ -1,5 +1,7 @@
 
-/* Número do Grupo: 9
+/* Dicionario.h
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
