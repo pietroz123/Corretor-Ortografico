@@ -1,5 +1,5 @@
 Erro: o
-Numero de vezes: 1
+Numero de vezes: 2
 
 Erro: pietro
 Numero de vezes: 1

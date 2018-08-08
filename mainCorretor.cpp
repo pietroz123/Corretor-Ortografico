@@ -15,7 +15,6 @@ using namespace std;
 #define COMPARAR        1
 #define DICIONARIO      2
 #define TEXTO           3
-// oi
 
 int main() {
 

@@ -1,3 +1,4 @@
+a
 aba
 abacate
 abade
@@ -1861,6 +1862,7 @@ betumes
 betão
 betões
 bexiga
+bianca
 biberão
 biberões
 bibi
@@ -8993,6 +8995,7 @@ leccionando
 leccionação
 legado
 legados
+legal.
 legalidade
 legalização
 legenda
@@ -14932,6 +14935,7 @@ tamariz
 tambor
 tambores
 tamboril
+também.
 tampa
 tampas
 tampo
@@ -16278,6 +16282,7 @@ zé
 ânimo
 ânimos
 ânsia
+é
 écran
 écrans
 édito

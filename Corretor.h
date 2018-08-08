@@ -25,13 +25,14 @@
 class Corretor {
 
     private:
+        Texto T;
+        Dicionario D;
 		list<Palavra> Erros;
-    // oi
 
     public:
 		void Compara(Texto &T, Dicionario &D);
-    void GravarErros();
-
+        void Compara();
+        void GravarErros();
 
 };
 
