@@ -45,6 +45,7 @@ class Dicionario{
         void setSemelhantes(Palavra &P);
         void MostrarSemelhantes();
         list<Palavra> getSemelhantes();
+        bool ConsultaSemelhantes(Palavra &);
 
         // → Gravar Dicionario Original
         void GravarDicionario();

@@ -82,6 +82,14 @@ void Dicionario::MostrarSemelhantes() {
 
 }
 
+bool Dicionario::ConsultaSemelhantes(Palavra &P) {
+    for (list<Palavra>::iterator it = Semelhantes.begin(); it != Semelhantes.end(); it++)
+        if (*it == P)
+            return true;
+    return false;
+}
+
+
 
 // → Gravar Dicionario Original
 void IterarDicionario_EmOrdem(No *Raiz, ofstream &Original) {

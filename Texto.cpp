@@ -115,9 +115,6 @@ void Texto::setPalavrasTexto(list<Palavra> &Lista) {
 
 
 // → Permite alterar uma Palavra;
-void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
-    Palavra P2;
-    cout << "Digite a Palavra desejada: ";
-    cin >> P2;
+void Texto::AlterarPalavra(list<Palavra>::iterator &it, Palavra &P2) {
     *it = P2;
 }
