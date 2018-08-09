@@ -4,6 +4,12 @@ Numero de vezes: 1
 Erro: Bianca
 Numero de vezes: 1
 
-Erro: legal.
+Erro: legal
+Numero de vezes: 1
+
+Erro: Olha
+Numero de vezes: 1
+
+Erro: O
 Numero de vezes: 1
 

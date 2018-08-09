@@ -19,7 +19,6 @@ void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atu
     list<Palavra>::iterator Proximo = next(Atual, 1);
 
     Fim = prev(Fim, 1);
-    // oi teste, funciona?
 
     if(Atual == Inicio)
         cout << "(Inexistente)" << " - " << *Atual << " - " << *Proximo << endl;
@@ -42,6 +41,20 @@ void InicializaDicionario(Dicionario &D) {
     D.InserirPalavras(Arquivo_Dicionario);
 
 }
+
+string RemovePontuacao(Palavra P) {
+        
+    string palavra = P.getPalavra();
+
+    for (int i = 0, tamanho = palavra.size(); i < tamanho; i++)
+        if(ispunct(palavra[i])) {
+            palavra.erase(i--, 1);
+            tamanho = palavra.size();
+        }
+        
+    return palavra;
+}
+
 void Corretor::Compara() {
 
     InicializaDicionario(D);
@@ -53,19 +66,7 @@ void Corretor::Compara() {
 
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
         
-            
-        string palavra = (*it).getPalavra();
-        cout << palavra << endl;
-
-        for (int i = 0, tamanho = palavra.size(); i < tamanho; i++)
-            if(ispunct(palavra[i])) {
-                palavra.erase(i--, 1);
-                tamanho = palavra.size();
-            }
-            
-        cout << palavra << endl;
-        Palavra Temp(palavra);
-
+        Palavra Temp(RemovePontuacao(*it));
 
         // Verifica se a Palavra está no Dicionario      
         // Caso não esteja: 
@@ -74,9 +75,9 @@ void Corretor::Compara() {
             int Opcao;
 
             // Coloca a palavra errada na lista de Erros do Corretor
-            Erros.push_back(*it);
+            Erros.push_back(Temp);
 
-            cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
+            cout << endl << "Palavra '" << Temp << "' NAO pertence ao dicionario!" << endl;
             
             // Imprime o Contexto da palavra (anterior - atual - próxima)
             cout << "Contexto da Palavra:" << endl;
@@ -128,7 +129,7 @@ void Corretor::Compara() {
                 }
                 case 3: {
 
-                    D.setSemelhantes(*it); // Descobrimos as palavras semelhantes
+                    D.setSemelhantes(Temp); // Descobrimos as palavras semelhantes
                 
                     cout << "Lista de Palavras Semelhantes: ";
                     D.MostrarSemelhantes();
@@ -158,7 +159,7 @@ void Corretor::Compara() {
                     break;
                 }
                 case 4: {
-                    D.InserirPalavra(*it);
+                    D.InserirPalavra(Temp);
                     cout << "Palavra Adicionada!" << endl;                   
                     break;
                 }
