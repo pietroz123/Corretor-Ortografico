@@ -1,18 +1,33 @@
-Erro: o
-Numero de vezes: 2
-
-Erro: edson
-Numero de vezes: 1
-
-Erro: otávio
-Numero de vezes: 1
-
-Erro: inteligente.
-Numero de vezes: 1
-
-Erro: pietro
+Erro: Ciência
 Numero de vezes: 1
 
 Erro: da
+Numero de vezes: 1
+
+Erro: que
+Numero de vezes: 2
+
+Erro: estuda
+Numero de vezes: 1
+
+Erro: as
+Numero de vezes: 1
+
+Erro: ,
+Numero de vezes: 2
+
+Erro: e
+Numero de vezes: 2
+
+Erro: computacionais
+Numero de vezes: 1
+
+Erro: automatiza
+Numero de vezes: 1
+
+Erro: desenvolve
+Numero de vezes: 1
+
+Erro: baseadas
 Numero de vezes: 1
 

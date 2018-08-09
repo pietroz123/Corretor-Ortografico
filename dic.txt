@@ -1449,6 +1449,7 @@ autoestrada
 autogestão
 automatismo
 automatismos
+automatiza
 automatização
 automação
 automobilismo
@@ -4697,6 +4698,7 @@ desenho
 desenhos
 desentendimento
 desentendimentos
+desenvolve
 desenvolvimento
 desenvolvimentos
 desequilíbrio
