@@ -12,9 +12,6 @@
 #include "Arvore.h"
 #include "Palavra.h"
 
-#include <stack>
-#include <queue>
-
 
 // Construtor
 Arvore::Arvore() {

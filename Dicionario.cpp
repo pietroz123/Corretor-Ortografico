@@ -10,7 +10,6 @@
 */
 
 #include "Dicionario.h"
-#include <vector>
 #include <stack>
 
 // → Armazena as palavras do arquivo “dict.txt” em uma árvore balanceada

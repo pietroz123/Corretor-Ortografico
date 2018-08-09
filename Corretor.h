@@ -32,7 +32,6 @@ class Corretor {
 		list<Palavra> Erros;
 
     public:
-		void Compara(Texto &T, Dicionario &D);
         void Compara();
         void GravarErros();
 
