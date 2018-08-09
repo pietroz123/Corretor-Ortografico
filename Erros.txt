@@ -1,33 +1,9 @@
-Erro: Ciência
+Erro: A
 Numero de vezes: 1
 
-Erro: da
+Erro: Bianca
 Numero de vezes: 1
 
-Erro: que
-Numero de vezes: 2
-
-Erro: estuda
-Numero de vezes: 1
-
-Erro: as
-Numero de vezes: 1
-
-Erro: ,
-Numero de vezes: 2
-
-Erro: e
-Numero de vezes: 2
-
-Erro: computacionais
-Numero de vezes: 1
-
-Erro: automatiza
-Numero de vezes: 1
-
-Erro: desenvolve
-Numero de vezes: 1
-
-Erro: baseadas
+Erro: legal.
 Numero de vezes: 1
 

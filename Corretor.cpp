@@ -10,6 +10,8 @@
 */
 
 #include "Corretor.h"
+#include <string>
+#include <algorithm>
 
 void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
@@ -50,10 +52,24 @@ void Corretor::Compara() {
     list<Palavra>::iterator it;
 
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
-    
+        
+            
+        string palavra = (*it).getPalavra();
+        cout << palavra << endl;
+
+        for (int i = 0, tamanho = palavra.size(); i < tamanho; i++)
+            if(ispunct(palavra[i])) {
+                palavra.erase(i--, 1);
+                tamanho = palavra.size();
+            }
+            
+        cout << palavra << endl;
+        Palavra Temp(palavra);
+
+
         // Verifica se a Palavra está no Dicionario      
         // Caso não esteja: 
-        if( D.Consulta(*it) == false ) {
+        if( D.Consulta(Temp) == false ) {
 
             int Opcao;
 
