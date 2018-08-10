@@ -110,6 +110,7 @@ void Corretor::Compara() {
             switch(Opcao) {
 
                 case 0: {
+                
                     T.setPalavrasTexto(TextWords);
                     GravarErros();
                     
@@ -128,8 +129,10 @@ void Corretor::Compara() {
                     cout << "Gravando Dicionario..." << endl;
                     D.GravarDicionario();
                     return;
+                
                     break;
                 }
+
                 case 1: {
 
                     Palavra P2;
@@ -147,10 +150,14 @@ void Corretor::Compara() {
                     
                     break;
                 }
+                
                 case 2: {
+                
                     cout << "Palavra ignorada" << endl;
+                
                     break;
                 }
+                
                 case 3: {
 
                     D.setSemelhantes(Temp); // Descobrimos as palavras semelhantes
@@ -185,13 +192,18 @@ void Corretor::Compara() {
                         }
 
                     }
+                
                     break;
                 }
+                
                 case 4: {
+                
                     D.InserirPalavra(Temp);
                     cout << "Palavra Adicionada!" << endl;                   
+                
                     break;
                 }
+                
                 default: {
                     cout << "Digite uma opcao valida!" << endl;
                     break;
