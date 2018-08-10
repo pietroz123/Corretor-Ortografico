@@ -55,18 +55,33 @@ string RemovePontuacao(Palavra P) {
     return palavra;
 }
 
+bool ExistePontuacao(Palavra P, char &c) {
+    
+    string Word = P.getPalavra();
+
+    for (int i = 0; i < Word.size(); i++)
+        if (ispunct(Word[i])) {
+            c = Word[i];
+            return true;
+        }
+
+    return false;
+}
+
 void Corretor::Compara() {
 
     InicializaDicionario(D);
     InicializaTexto(T);
 
     list<Palavra> TextWords = T.getPalavrasTexto();
-    
     list<Palavra>::iterator it;
+
 
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
         
+
         Palavra Temp(RemovePontuacao(*it));
+        char c;
 
         // Verifica se a Palavra está no Dicionario      
         // Caso não esteja: 
@@ -116,11 +131,20 @@ void Corretor::Compara() {
                     break;
                 }
                 case 1: {
+
                     Palavra P2;
                     cout << "Digite a Palavra desejada: ";
                     cin >> P2;
-                    T.AlterarPalavra(it, P2);
+                    
+                    if (ExistePontuacao(*it, c)) {
+                        (*it).setPalavra(P2.getPalavra() += c);
+                    }
+                    else {
+                        T.AlterarPalavra(it, P2);
+                    }
+                    
                     cout << "Palavra alterada com sucesso!" << endl;
+                    
                     break;
                 }
                 case 2: {
@@ -146,7 +170,12 @@ void Corretor::Compara() {
                             if (!D.ConsultaSemelhantes(P2))
                                 throw 0;
                             else { 
-                                T.AlterarPalavra(it, P2);
+                                if (ExistePontuacao(*it, c)) {
+                                    (*it).setPalavra(P2.getPalavra() += c);
+                                }
+                                else {
+                                    T.AlterarPalavra(it, P2);
+                                }
                                 cout << "Palavra alterada com sucesso!" << endl;
                             }            
                         }
