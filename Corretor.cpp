@@ -11,7 +11,6 @@
 
 #include "Corretor.h"
 #include <string>
-#include <algorithm>
 
 void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
@@ -42,6 +41,7 @@ void InicializaDicionario(Dicionario &D) {
 
 }
 
+// Remove a pontuação de uma Palavra e retorna uma nova string
 string RemovePontuacao(Palavra P) {
         
     string palavra = P.getPalavra();
