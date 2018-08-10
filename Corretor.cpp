@@ -171,6 +171,24 @@ void Corretor::Compara() {
         }
     }
 
+    T.setPalavrasTexto(TextWords);
+    GravarErros();
+    
+    int Opcao = -1;
+    while(Opcao != 2){
+        cout << endl;
+        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
+        cin >> Opcao;
+        if (Opcao == 1){
+            T.GravarTextoDiferente();
+            cout << "Texto gravado com sucesso!" << endl;
+        }
+    }
+
+    cout << "Gravando Arquivo Texto Original..." << endl;
+    T.GravarTextoOriginal();
+    cout << "Gravando Dicionario..." << endl;
+    D.GravarDicionario();
 
 }
 
