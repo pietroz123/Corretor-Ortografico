@@ -59,11 +59,6 @@ void Dicionario::setSemelhantes(Palavra &P) {
     setSemelhantes_Privado(Semelhantes, Palavras_Do_Dicionario.getPrimeiro(), P);
 }
 
-// Método Get que retorna a lista de Semelhantes
-list<Palavra> Dicionario::getSemelhantes(){
-    return Semelhantes;    
-}
-
 
 // → Função para mostrar todas as Palavras Semelhantes
 void Dicionario::MostrarSemelhantes() {
