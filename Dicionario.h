@@ -44,7 +44,6 @@ class Dicionario{
         // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
         void setSemelhantes(Palavra &P);
         void MostrarSemelhantes();
-        list<Palavra> getSemelhantes();
         bool ConsultaSemelhantes(Palavra &);
 
         // → Gravar Dicionario Original
