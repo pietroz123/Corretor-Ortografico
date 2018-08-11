@@ -1,0 +1,15 @@
+Erro: Ciência
+Numero de vezes: 1
+
+Erro: da
+Numero de vezes: 1
+
+Erro: que
+Numero de vezes: 1
+
+Erro: estuda
+Numero de vezes: 1
+
+Erro: as
+Numero de vezes: 1
+
