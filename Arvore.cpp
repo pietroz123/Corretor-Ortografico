@@ -207,6 +207,17 @@ bool Arvore::Busca(Palavra P) {
     }
     return false;
 }
+void Busca_Semelhante_Privado(list<Palavra> &Semelhantes, Palavra P, No *N) {
+    if (N == NULL)  return;
+    if ((N->P).Semelhante(P)) { // Se a Palavra em N (N->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
+        Semelhantes.push_back(N->P);
+    }
+    Busca_Semelhante_Privado(Semelhantes, P, N->Filho_Esquerdo);
+    Busca_Semelhante_Privado(Semelhantes, P, N->Filho_Direito);
+}
+void Arvore::Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P) {
+    Busca_Semelhante_Privado(Semelhantes, P, Raiz);
+}
 
 
 // Percurso
@@ -218,6 +229,16 @@ void EmOrdem_Privado(No *N) {
 }
 void Arvore::EmOrdem() {
     EmOrdem_Privado(Raiz);
+}
+
+void IterarEmOrdem(No *N, ofstream &Arquivo) {
+    if (N == NULL)  return;
+    IterarEmOrdem(N->Filho_Esquerdo, Arquivo);
+    Arquivo << N->P << endl;
+    IterarEmOrdem(N->Filho_Direito, Arquivo);
+}
+void Arvore::GravarArvore(ofstream &Arquivo) {
+    IterarEmOrdem(Raiz, Arquivo);
 }
 
 

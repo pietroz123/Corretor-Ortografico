@@ -10,7 +10,6 @@
 */
 
 #include "Dicionario.h"
-#include <stack>
 
 // → Armazena as palavras do arquivo “dict.txt” em uma árvore balanceada
 void Dicionario::InserirPalavras(ifstream &arquivo) {
@@ -46,17 +45,9 @@ void Dicionario::InserirPalavra(Palavra &P) {
 
 
 // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
-void setSemelhantes_Privado(list<Palavra> &Semelhantes, No *N, Palavra &P) {
-    if (N == NULL)  return;
-    if ((N->P).Semelhante(P)) { // Se a Palavra em N (N->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
-        Semelhantes.push_back(N->P);
-    }
-    setSemelhantes_Privado(Semelhantes, N->Filho_Esquerdo, P);
-    setSemelhantes_Privado(Semelhantes, N->Filho_Direito, P);
-}
 void Dicionario::setSemelhantes(Palavra &P) {
     Semelhantes.clear(); // A cada chamada da função setSemelhantes, esvaziamos a lista de Semelhantes
-    setSemelhantes_Privado(Semelhantes, Palavras_Do_Dicionario.getPrimeiro(), P);
+    Palavras_Do_Dicionario.Busca_Semelhante(Semelhantes, P);
 }
 
 
@@ -86,37 +77,13 @@ bool Dicionario::ConsultaSemelhantes(Palavra &P) {
 
 
 // → Gravar Dicionario Original
-void IterarDicionario_EmOrdem(Arvore &A, ofstream &Original) {
-    
-    No *Raiz = A.getPrimeiro();
-
-    if (Raiz == NULL)   return;
-
-    stack<No*> s;
-
-    No *Atual = Raiz;
-    while ( !s.empty() || Atual != NULL) {
-
-        while (Atual != NULL) {
-            s.push(Atual);
-            Atual = Atual->Filho_Esquerdo;
-        }
-
-        Atual = s.top();
-        Original << Atual->P << endl;
-        s.pop();
-        Atual = Atual->Filho_Direito;
-
-    }
-
-}
 void Dicionario::GravarDicionario() {
 
     ofstream Original;
     Original.open("dic.txt", ofstream::out);
 
     // A função GravarDicionario utiliza uma função Auxiliar que itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
-    IterarDicionario_EmOrdem(Palavras_Do_Dicionario, Original);
+    Palavras_Do_Dicionario.GravarArvore(Original);
 
     Original.close();
 

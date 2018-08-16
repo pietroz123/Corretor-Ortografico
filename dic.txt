@@ -3518,6 +3518,7 @@ compromissos
 comprovativo
 comprovativos
 comprovação
+computacionais
 computador
 computadores
 computação
@@ -4400,6 +4401,7 @@ cúmulo
 cúmulos
 cúpula
 cúria
+da
 dada
 dadas
 dado
@@ -12784,6 +12786,7 @@ quaternário
 quatro
 quatrocentos
 quatros
+que
 quebra
 quebrada
 quebrado
