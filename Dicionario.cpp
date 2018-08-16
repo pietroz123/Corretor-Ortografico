@@ -86,8 +86,10 @@ bool Dicionario::ConsultaSemelhantes(Palavra &P) {
 
 
 // → Gravar Dicionario Original
-void IterarDicionario_EmOrdem(No *Raiz, ofstream &Original) {
+void IterarDicionario_EmOrdem(Arvore &A, ofstream &Original) {
     
+    No *Raiz = A.getPrimeiro();
+
     if (Raiz == NULL)   return;
 
     stack<No*> s;
@@ -114,7 +116,7 @@ void Dicionario::GravarDicionario() {
     Original.open("dic.txt", ofstream::out);
 
     // A função GravarDicionario utiliza uma função Auxiliar que itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
-    IterarDicionario_EmOrdem(Palavras_Do_Dicionario.getPrimeiro(), Original);
+    IterarDicionario_EmOrdem(Palavras_Do_Dicionario, Original);
 
     Original.close();
 
