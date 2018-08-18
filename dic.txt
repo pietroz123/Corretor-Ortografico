@@ -924,6 +924,7 @@ apelido
 apelidos
 apelo
 apelos
+apenas
 apendicite
 apensação
 apenso

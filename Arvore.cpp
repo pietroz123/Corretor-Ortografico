@@ -96,10 +96,7 @@ No *RotacaoRR(No *A) {
 // Inserção
 No *Inserir_Privado(No *no, Palavra P) {
     if (no == NULL) {
-        No *Novo = new No(P);
-        Novo->Filho_Esquerdo = Novo->Filho_Direito = NULL;
-        Novo->P = P;
-        return Novo;
+        return new No(P);
     }
     else if (P > no->P)
         no->Filho_Direito = Inserir_Privado(no->Filho_Direito, P);
