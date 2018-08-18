@@ -242,8 +242,3 @@ void Arvore::GravarArvore(ofstream &Arquivo) {
 }
 
 
-// Função para pegar a Raiz
-No *Arvore::getPrimeiro() {
-    return Arvore::Raiz;
-}
-

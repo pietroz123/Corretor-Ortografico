@@ -26,18 +26,16 @@ using namespace std;
 #include <fstream>
 
 struct No {
-            Palavra P;
-            int Fb;
-            No *Filho_Direito;
-            No *Filho_Esquerdo;
-            No *Pai;
-        };
+    Palavra P;
+    int Fb;
+    No *Filho_Direito;
+    No *Filho_Esquerdo;
+    No *Pai;
+};
 
 class Arvore {
 
     private:
-
-        
 
         int nFilhos;
         No *Raiz;
@@ -52,7 +50,6 @@ class Arvore {
         void EmOrdem();
         void Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P);
         void GravarArvore(ofstream &Arquivo);
-        No *getPrimeiro();
         
 };
 
