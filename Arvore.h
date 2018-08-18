@@ -48,8 +48,8 @@ class Arvore {
         void Remover(Palavra);
         bool Busca(Palavra);
         void EmOrdem();
-        void Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P);
-        void GravarArvore(ofstream &Arquivo);
+        void Busca_Semelhante(list<Palavra> &, Palavra);
+        void GravarArvore(ofstream &);
         
 };
 
