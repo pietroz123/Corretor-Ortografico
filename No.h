@@ -4,13 +4,12 @@
 
 class No {
 
-    private:
+    
+    public:
         Palavra P;
         int Fb;
         No *Filho_Direito;
         No *Filho_Esquerdo;
-    
-    public:
         No(Palavra P);
         ~No();
 

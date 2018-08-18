@@ -22,21 +22,14 @@
 using namespace std;
 
 #include "Palavra.h"
+#include "No.h"
 #include <list>
 #include <fstream>
 
-struct No {
-    Palavra P;
-    int Fb;
-    No *Filho_Direito;
-    No *Filho_Esquerdo;
-    No *Pai;
-};
 
 class Arvore {
 
     private:
-
         int nFilhos;
         No *Raiz;
     

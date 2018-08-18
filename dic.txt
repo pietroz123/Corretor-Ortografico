@@ -4930,6 +4930,7 @@ difusor
 difusores
 difusão
 digestão
+digital
 digitalização
 digitação
 dignidade
@@ -6189,6 +6190,7 @@ estrume
 estrutura
 estruturas
 estruturação
+estuda
 estudante
 estudantes
 estudantina

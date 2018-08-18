@@ -8,6 +8,8 @@ No::No(Palavra P) {
 }
 
 No::~No() {
-    delete this->Filho_Esquerdo;
-    delete this->Filho_Direito;
+    if (this->Filho_Esquerdo)
+        delete this->Filho_Esquerdo;
+    if (this->Filho_Direito)
+        delete this->Filho_Direito;
 }

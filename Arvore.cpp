@@ -19,14 +19,8 @@ Arvore::Arvore() {
     Arvore::nFilhos = 0;
 }
 // Destrutor
-void Destrutor_Privado(No *N) {
-    if (N == NULL)  return;
-    Destrutor_Privado(N->Filho_Esquerdo);
-    Destrutor_Privado(N->Filho_Direito);
-    delete N;
-}
 Arvore::~Arvore() {
-    Destrutor_Privado(Raiz);
+    delete Raiz;
 }
 
 
@@ -40,17 +34,17 @@ bool Arvore::Vazia() {
 
 
 // Funções Auxiliares para o Fator de Balanceamento (Fb = Hd - He)
-int altura(No *N) {
-    if (N == NULL)  return 0;
-    int He = altura(N->Filho_Esquerdo); // He = Altura Esquerda
-    int Hd = altura(N->Filho_Direito);  // Hd = Altura Direita
+int altura(No *no) {
+    if (no == NULL)  return 0;
+    int He = altura(no->Filho_Esquerdo); // He = Altura Esquerda
+    int Hd = altura(no->Filho_Direito);  // Hd = Altura Direita
     if (Hd > He)
         return Hd + 1;
     else
         return He + 1;
 }
-int Fb(No *N) {
-    return altura(N->Filho_Direito) - altura(N->Filho_Esquerdo);
+int Fb(No *no) {
+    return altura(no->Filho_Direito) - altura(no->Filho_Esquerdo);
 }
 
 
@@ -100,39 +94,39 @@ No *RotacaoRR(No *A) {
     return B;
 }
 // Inserção
-No *Inserir_Privado(No *N, Palavra P) {
-    if (N == NULL) {
-        No *Novo = new No;
+No *Inserir_Privado(No *no, Palavra P) {
+    if (no == NULL) {
+        No *Novo = new No(P);
         Novo->Filho_Esquerdo = Novo->Filho_Direito = NULL;
         Novo->P = P;
         return Novo;
     }
-    else if (P > N->P)
-        N->Filho_Direito = Inserir_Privado(N->Filho_Direito, P);
-    else if (P < N->P)
-        N->Filho_Esquerdo = Inserir_Privado(N->Filho_Esquerdo, P);
+    else if (P > no->P)
+        no->Filho_Direito = Inserir_Privado(no->Filho_Direito, P);
+    else if (P < no->P)
+        no->Filho_Esquerdo = Inserir_Privado(no->Filho_Esquerdo, P);
     else
-        return N;
+        return no;
 
-    N->Fb = Fb(N);                                                
+    no->Fb = Fb(no);                                                
 
     // Caso Rotação à Esquerda (RR)
-    if (N->Fb > 1 && P > N->Filho_Direito->P)
-        return RotacaoRR(N);
+    if (no->Fb > 1 && P > no->Filho_Direito->P)
+        return RotacaoRR(no);
 
     // Caso Rotação à Direita (LL)
-    if (N->Fb < -1 && P < N->Filho_Esquerdo->P)
-        return RotacaoLL(N);
+    if (no->Fb < -1 && P < no->Filho_Esquerdo->P)
+        return RotacaoLL(no);
 
     // Caso Rotação à Esquerda e à Direita (LR)
-    if (N->Fb < -1 && P > N->Filho_Esquerdo->P)
-        return RotacaoLR(N);
+    if (no->Fb < -1 && P > no->Filho_Esquerdo->P)
+        return RotacaoLR(no);
 
     // Caso Rotação à Direita e à Esquerda (RL)
-    if (N->Fb > 1 && P < N->Filho_Direito->P)
-        return RotacaoRL(N);
+    if (no->Fb > 1 && P < no->Filho_Direito->P)
+        return RotacaoRL(no);
 
-    return N;
+    return no;
 }
 void Arvore::Inserir(Palavra P) {
     Raiz = Inserir_Privado(Raiz, P);
@@ -141,52 +135,52 @@ void Arvore::Inserir(Palavra P) {
 
 
 // Remoção
-No *Minimo(No *N) {
-    while (N->Filho_Esquerdo)
-        N = N->Filho_Esquerdo;
-    return N;
+No *Minimo(No *no) {
+    while (no->Filho_Esquerdo)
+        no = no->Filho_Esquerdo;
+    return no;
 }
-No *Remover_Privado(No *N, Palavra P) {
-    if (N == NULL)
+No *Remover_Privado(No *no, Palavra P) {
+    if (no == NULL)
         return NULL;
-    else if (P < N->P)              // vá para a sub-árvore direita
-        N->Filho_Esquerdo = Remover_Privado(N->Filho_Esquerdo, P);
-    else if (P > N->P)              // vá para a sub-árvore esquerda
-        N->Filho_Direito = Remover_Privado(N->Filho_Direito, P);
-    else {                                              // atualize os dados (dados.valor == N->dados.valor)
-        if (!N->Filho_Esquerdo) {
-            No *direita = N->Filho_Direito;
-            free(N);
+    else if (P < no->P)              // vá para a sub-árvore direita
+        no->Filho_Esquerdo = Remover_Privado(no->Filho_Esquerdo, P);
+    else if (P > no->P)              // vá para a sub-árvore esquerda
+        no->Filho_Direito = Remover_Privado(no->Filho_Direito, P);
+    else {                                              // atualize os dados (dados.valor == no->dados.valor)
+        if (!no->Filho_Esquerdo) {
+            No *direita = no->Filho_Direito;
+            free(no);
             return direita;
         }
-        if (!N->Filho_Direito) {
-            No *esquerda = N->Filho_Esquerdo;
-            free(N);
+        if (!no->Filho_Direito) {
+            No *esquerda = no->Filho_Esquerdo;
+            free(no);
             return esquerda;
         }
-        N->P = Minimo(N->Filho_Direito)->P;
-        N->Filho_Direito = Remover_Privado(N->Filho_Direito, N->P);
+        no->P = Minimo(no->Filho_Direito)->P;
+        no->Filho_Direito = Remover_Privado(no->Filho_Direito, no->P);
     }
 
-    N->Fb = Fb(N);
+    no->Fb = Fb(no);
 
     // Caso Rotação RR
-    if (N->Fb > 1 && Fb(N->Filho_Direito) >= 0)
-        return RotacaoRR(N);
+    if (no->Fb > 1 && Fb(no->Filho_Direito) >= 0)
+        return RotacaoRR(no);
 
     // Caso Rotação LL
-    if (N->Fb < -1 && Fb(N->Filho_Esquerdo) <= 0)
-        return RotacaoLL(N);
+    if (no->Fb < -1 && Fb(no->Filho_Esquerdo) <= 0)
+        return RotacaoLL(no);
 
     // Caso Rotação LR
-    if (N->Fb < -1 && Fb(N->Filho_Esquerdo) > 0)
-        return RotacaoLR(N);
+    if (no->Fb < -1 && Fb(no->Filho_Esquerdo) > 0)
+        return RotacaoLR(no);
 
     // Caso Rotação RL
-    if (N->Fb > 1 && Fb(N->Filho_Direito) < 0)
-        return RotacaoRL(N);    
+    if (no->Fb > 1 && Fb(no->Filho_Direito) < 0)
+        return RotacaoRL(no);    
 
-    return N;   
+    return no;   
 }
 void Arvore::Remover(Palavra P) {
     Raiz = Remover_Privado(Raiz, P);
@@ -207,13 +201,13 @@ bool Arvore::Busca(Palavra P) {
     }
     return false;
 }
-void Busca_Semelhante_Privado(list<Palavra> &Semelhantes, Palavra P, No *N) {
-    if (N == NULL)  return;
-    if ((N->P).Semelhante(P)) { // Se a Palavra em N (N->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
-        Semelhantes.push_back(N->P);
+void Busca_Semelhante_Privado(list<Palavra> &Semelhantes, Palavra P, No *no) {
+    if (no == NULL)  return;
+    if ((no->P).Semelhante(P)) { // Se a Palavra em no (no->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
+        Semelhantes.push_back(no->P);
     }
-    Busca_Semelhante_Privado(Semelhantes, P, N->Filho_Esquerdo);
-    Busca_Semelhante_Privado(Semelhantes, P, N->Filho_Direito);
+    Busca_Semelhante_Privado(Semelhantes, P, no->Filho_Esquerdo);
+    Busca_Semelhante_Privado(Semelhantes, P, no->Filho_Direito);
 }
 void Arvore::Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P) {
     Busca_Semelhante_Privado(Semelhantes, P, Raiz);
@@ -221,21 +215,21 @@ void Arvore::Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P) {
 
 
 // Percurso
-void EmOrdem_Privado(No *N) {
-    if (N == NULL)  return;
-    EmOrdem_Privado(N->Filho_Esquerdo);
-    cout << N->P << " ";
-    EmOrdem_Privado(N->Filho_Direito);
+void EmOrdem_Privado(No *no) {
+    if (no == NULL)  return;
+    EmOrdem_Privado(no->Filho_Esquerdo);
+    cout << no->P << " ";
+    EmOrdem_Privado(no->Filho_Direito);
 }
 void Arvore::EmOrdem() {
     EmOrdem_Privado(Raiz);
 }
 
-void IterarEmOrdem(No *N, ofstream &Arquivo) {
-    if (N == NULL)  return;
-    IterarEmOrdem(N->Filho_Esquerdo, Arquivo);
-    Arquivo << N->P << endl;
-    IterarEmOrdem(N->Filho_Direito, Arquivo);
+void IterarEmOrdem(No *no, ofstream &Arquivo) {
+    if (no == NULL)  return;
+    IterarEmOrdem(no->Filho_Esquerdo, Arquivo);
+    Arquivo << no->P << endl;
+    IterarEmOrdem(no->Filho_Direito, Arquivo);
 }
 void Arvore::GravarArvore(ofstream &Arquivo) {
     IterarEmOrdem(Raiz, Arquivo);
