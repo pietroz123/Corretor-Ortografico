@@ -1,0 +1,12 @@
+Erro: estuda
+Numero de vezes: 1
+
+Erro: as
+Numero de vezes: 1
+
+Erro: e
+Numero de vezes: 2
+
+Erro: louva-a-deus
+Numero de vezes: 1
+

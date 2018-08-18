@@ -55,15 +55,17 @@ void InicializaDicionario(Dicionario &D) {
 
 // Remove a pontuação de uma Palavra e retorna uma nova string
 string RemovePontuacao(Palavra P) {
-        
+
     string palavra = P.getPalavra();
 
-    for (int i = 0, tamanho = palavra.size(); i < tamanho; i++)
-        if(ispunct(palavra[i])) {
+    for (int i = palavra.size() - 1; i > 0; i--) {
+        if (ispunct(palavra[i])) {
+            if (palavra[i] == '-')  // cuida do caso de Palavras com hífen, como louva-a-Deus
+                return palavra;
             palavra.erase(i--, 1);
-            tamanho = palavra.size();
         }
-        
+    }
+
     return palavra;
 }
 
