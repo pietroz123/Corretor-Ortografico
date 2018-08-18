@@ -23,28 +23,18 @@ void Texto::CarregarTexto() {
 
     Nome_Arquivo_Texto = Nome_Texto;
 
-    try {
-        ifstream Arquivo;
-        Arquivo.open(Nome_Arquivo_Texto, ifstream::in);
+    ifstream Arquivo;
+    Arquivo.open(Nome_Arquivo_Texto, ifstream::in);
+
+    if (!Arquivo)
+        throw "Nao existe o arquivo!";
         
-        if (!Arquivo)
-            throw 0;
-        
-        cout << "Arquivo aberto com sucesso!" << endl;
-        
-        Palavra Temp;
-        
-        while (Arquivo >> Temp)
-            Palavras_Texto.push_back(Temp);
-        
-        Arquivo.close();
-    }
-    catch (int Erro) {
-        if (Erro == 0)
-            cout << "Arquivo inexistente!" << endl;
-        CarregarTexto();
-        
-    }
+    Palavra Temp;
+    
+    while (Arquivo >> Temp)
+        Palavras_Texto.push_back(Temp);
+    
+    Arquivo.close();
 
 }
 

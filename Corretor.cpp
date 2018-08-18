@@ -30,7 +30,18 @@ void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atu
 
 void InicializaTexto(Texto &T) {
 
-    T.CarregarTexto();
+    int flag = false;
+    while (flag == false) {
+        flag = true;
+        try {
+            T.CarregarTexto();
+            cout << "Arquivo carregado com sucesso!" << endl;
+        }
+        catch (const char *s) {
+            cout << s << endl;
+            flag = false;
+        }
+    }
 
 }
 void InicializaDicionario(Dicionario &D) {
