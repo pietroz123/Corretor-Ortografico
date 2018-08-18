@@ -11,6 +11,7 @@
 
 #include "Corretor.h"
 #include <string>
+#include <algorithm>
 
 void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
@@ -90,6 +91,10 @@ void Corretor::Compara() {
 
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
         
+        // Converte a string presente na Palavra do iterador para letras minúsculas 
+        std::string palavra = (*it).getPalavra();
+        std::transform(palavra.begin(), palavra.end(), palavra.begin(), ::tolower);
+        (*it).setPalavra(palavra);
 
         Palavra Temp(RemovePontuacao(*it));
         char c;
