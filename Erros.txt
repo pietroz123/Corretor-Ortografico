@@ -2,35 +2,8 @@ Erro: as
 Numero de vezes: 1
 
 Erro: e
-Numero de vezes: 3
+Numero de vezes: 2
 
 Erro: e
 Numero de vezes: 0
-
-Erro: e
-Numero de vezes: 0
-
-Erro: baseadas
-Numero de vezes: 1
-
-Erro: no
-Numero de vezes: 1
-
-Erro: do
-Numero de vezes: 1
-
-Erro: não
-Numero de vezes: 1
-
-Erro: se
-Numero de vezes: 1
-
-Erro: restringe
-Numero de vezes: 1
-
-Erro: apenas
-Numero de vezes: 1
-
-Erro: ao
-Numero de vezes: 1
 

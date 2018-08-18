@@ -13,12 +13,6 @@
 using namespace std;
 
 #include "Corretor.h"
-#include <string>
-
-#define SAIR            0
-#define COMPARAR        1
-#define DICIONARIO      2
-#define TEXTO           3
 
 int main() {
 
