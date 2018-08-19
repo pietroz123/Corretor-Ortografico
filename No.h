@@ -10,6 +10,7 @@ class No {
         int Fb;
         No *Filho_Direito;
         No *Filho_Esquerdo;
+        No *Pai;
         No(Palavra P);
         ~No();
 

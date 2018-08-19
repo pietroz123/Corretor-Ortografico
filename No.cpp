@@ -5,6 +5,7 @@ No::No(Palavra P) {
     this->Fb = 0;
     this->Filho_Esquerdo = NULL;
     this->Filho_Direito = NULL;
+    this->Pai = NULL;
 }
 
 No::~No() {

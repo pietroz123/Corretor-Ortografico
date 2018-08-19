@@ -44,6 +44,8 @@ class Arvore {
         void Busca_Semelhante(list<Palavra> &, Palavra);
         void GravarArvore(ofstream &);
         
+        //deletar
+        void MostraPais();
 };
 
 #endif

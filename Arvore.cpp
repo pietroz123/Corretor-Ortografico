@@ -58,7 +58,13 @@ No *RotacaoRL(No *A) {
     C->Filho_Esquerdo = A;
     C->Filho_Direito = B;    
     B->Filho_Esquerdo = h3;
-    A->Filho_Direito = h2;   
+    A->Filho_Direito = h2;
+
+    C->Pai = A->Pai;
+    B->Pai = C;
+    A->Pai = C;
+    h2->Pai = B;
+    h3->Pai = A; 
 
     return C;   
 }
@@ -73,6 +79,12 @@ No *RotacaoLR(No *A) {
     B->Filho_Direito = h2;
     A->Filho_Esquerdo = h3;
 
+    C->Pai = A->Pai;
+    A->Pai = C;
+    B->Pai = C;
+    h2->Pai = A;
+    h3->Pai = B;
+
     return C;
 }
 No *RotacaoLL(No *A) {
@@ -81,6 +93,10 @@ No *RotacaoLL(No *A) {
 
     B->Filho_Direito= A;
     A->Filho_Esquerdo= h2;
+
+    B->Pai = A->Pai;
+    A->Pai = B;
+    h2->Pai = A;
 
     return B;    
 }
@@ -91,6 +107,10 @@ No *RotacaoRR(No *A) {
     B->Filho_Esquerdo = A;
     A->Filho_Direito = h2;
 
+    B->Pai = A->Pai;
+    A->Pai = B;
+    h2->Pai = A;
+
     return B;
 }
 // Inserção
@@ -98,10 +118,16 @@ No *Inserir_Privado(No *no, Palavra P) {
     if (no == NULL) {
         return new No(P);
     }
-    else if (P > no->P)
-        no->Filho_Direito = Inserir_Privado(no->Filho_Direito, P);
-    else if (P < no->P)
-        no->Filho_Esquerdo = Inserir_Privado(no->Filho_Esquerdo, P);
+    else if (P > no->P) {
+        No *direito = Inserir_Privado(no->Filho_Direito, P);
+        no->Filho_Direito = direito;
+        direito->Pai = no;
+    }
+    else if (P < no->P) {
+        No *esquerdo = Inserir_Privado(no->Filho_Esquerdo, P);
+        no->Filho_Esquerdo = esquerdo;
+        esquerdo->Pai = no;
+    }
     else
         return no;
 
@@ -233,3 +259,19 @@ void Arvore::GravarArvore(ofstream &Arquivo) {
 }
 
 
+
+//deletaar
+void MostraPais_Privado(No *N) {
+    if (N == NULL)  return;
+    MostraPais_Privado(N->Filho_Esquerdo);
+    cout << N->P << " - Pai: ";
+    if (N->Pai)
+        cout << N->Pai->P << endl;
+    else
+        cout << "NULL" << endl;
+    MostraPais_Privado(N->Filho_Direito);
+
+}
+void Arvore::MostraPais() {
+    MostraPais_Privado(Raiz);
+}

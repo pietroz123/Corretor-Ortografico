@@ -60,6 +60,13 @@ int main() {
                 break;
             }
 
+            case 5: { // Pais
+
+                A.MostraPais();
+
+                break;
+            }
+
         }
     }
 
