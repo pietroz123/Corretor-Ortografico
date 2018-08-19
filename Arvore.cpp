@@ -63,8 +63,8 @@ No *RotacaoRL(No *A) {
     C->Pai = A->Pai;
     B->Pai = C;
     A->Pai = C;
-    h2->Pai = B;
-    h3->Pai = A; 
+    h2->Pai = A;
+    h3->Pai = B; 
 
     return C;   
 }
@@ -82,8 +82,8 @@ No *RotacaoLR(No *A) {
     C->Pai = A->Pai;
     A->Pai = C;
     B->Pai = C;
-    h2->Pai = A;
-    h3->Pai = B;
+    h2->Pai = B;
+    h3->Pai = A;
 
     return C;
 }
