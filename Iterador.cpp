@@ -27,12 +27,12 @@ No *Iterador::SucessorEmOrdem(No *N) {
     return NULL;
 }
 
-bool Iterador::operator==(const Iterador &it) {
-
+bool Iterador::operator==(const Iterador &Outro) {
+    return Atual == Outro.Atual;
 }
 
 bool Iterador::operator!=(const Iterador &Outro) {
-
+    return !(Atual == Outro.Atual);
 }
 
 Palavra &Iterador::operator*() const {

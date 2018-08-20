@@ -69,8 +69,9 @@ int main() {
 
             case 6: { // Iterador
 
-                for (Iterador it = A.begin(); it != A.end(); it++)
-                    cout << *it << " ";                
+                for (Iterador it = A.begin(); it != A.end(); ++it)
+                    cout << *it << " ";
+                cout << endl;
 
                 break;
             }
