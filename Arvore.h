@@ -23,6 +23,7 @@ using namespace std;
 
 #include "Palavra.h"
 #include "No.h"
+#include "Iterador.h"
 #include <list>
 #include <fstream>
 
@@ -43,6 +44,10 @@ class Arvore {
         void EmOrdem();
         void Busca_Semelhante(list<Palavra> &, Palavra);
         void GravarArvore(ofstream &);
+
+        // Iterador
+        Iterador begin();
+        Iterador end();
         
         //deletar
         void MostraPais();

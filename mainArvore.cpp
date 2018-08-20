@@ -67,6 +67,14 @@ int main() {
                 break;
             }
 
+            case 6: { // Iterador
+
+                for (Iterador it = A.begin(); it != A.end(); it++)
+                    cout << *it << " ";                
+
+                break;
+            }
+
         }
     }
 

@@ -281,3 +281,15 @@ void MostraPais_Privado(No *N) {
 void Arvore::MostraPais() {
     MostraPais_Privado(Raiz);
 }
+
+// Iterador
+Iterador Arvore::begin() {
+    No *Atual = Raiz;
+    while (Atual->Filho_Esquerdo)
+        Atual = Atual->Filho_Esquerdo;
+    return Iterador(Atual);
+}
+
+Iterador Arvore::end() {
+    return Iterador(NULL);
+}

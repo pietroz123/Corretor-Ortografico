@@ -21,6 +21,7 @@ class Iterador {
         Iterador operator--();                      // decrementa para o valor anterior
         Iterador operator--(int n);                 // decrementa em n posições
 
+
 };
 
 #endif
