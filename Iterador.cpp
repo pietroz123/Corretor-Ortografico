@@ -2,7 +2,7 @@
 
 Iterador::Iterador(No *raiz) : Atual(raiz) { }
 
-No *Minimo(No *N) {
+No *Min(No *N) {
     while (N->Filho_Esquerdo)
         N = N->Filho_Esquerdo;
     return N;
@@ -11,7 +11,7 @@ No *Iterador::SucessorEmOrdem(No *N) {
     if (N == NULL)  return NULL;
 
     if (N->Filho_Direito)
-        return Minimo(N->Filho_Direito);
+        return Min(N->Filho_Direito);
 
     else {
         No *Ancestral = N->Pai;

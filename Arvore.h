@@ -27,6 +27,7 @@ using namespace std;
 #include <list>
 #include <fstream>
 
+class Iterador;
 
 class Arvore {
 
