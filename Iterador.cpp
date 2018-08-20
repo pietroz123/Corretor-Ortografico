@@ -2,6 +2,11 @@
 
 Iterador::Iterador(No *raiz) : Atual(raiz) { }
 
+Iterador::Iterador(const Iterador &Outro) {
+    this->Atual = Outro.Atual;
+}
+
+
 No *Min(No *N) {
     while (N->Filho_Esquerdo)
         N = N->Filho_Esquerdo;
@@ -45,7 +50,9 @@ Iterador Iterador::operator++() {
 }
 
 Iterador Iterador::operator++(int n) {
-
+    Iterador Temp = *this;
+    Atual = SucessorEmOrdem(Atual);
+    return Temp;
 }
 
 Iterador Iterador::operator--() {

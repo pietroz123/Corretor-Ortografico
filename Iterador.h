@@ -13,6 +13,7 @@ class Iterador {
 
     public:
         Iterador(No *raiz);
+        Iterador(const Iterador &Outro);
         bool operator==(const Iterador &it);        // comparação entre iteradores
         bool operator!=(const Iterador &Outro);      
         Palavra &operator*() const;                 // acessa e retorna a Palavra
