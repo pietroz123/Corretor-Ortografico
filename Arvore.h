@@ -47,8 +47,8 @@ class Arvore {
         void GravarArvore(ofstream &);
 
         // Iterador
-        Iterador begin();
-        Iterador end();
+        Iterador begin() const;
+        Iterador end() const;
         
         //deletar
         void MostraPais();

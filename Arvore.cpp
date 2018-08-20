@@ -283,13 +283,13 @@ void Arvore::MostraPais() {
 }
 
 // Iterador
-Iterador Arvore::begin() {
+Iterador Arvore::begin() const {
     No *Atual = Raiz;
     while (Atual->Filho_Esquerdo)
         Atual = Atual->Filho_Esquerdo;
     return Iterador(Atual);
 }
 
-Iterador Arvore::end() {
+Iterador Arvore::end() const {
     return Iterador(NULL);
 }
