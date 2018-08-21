@@ -230,17 +230,6 @@ bool Arvore::Busca(Palavra P) {
     }
     return false;
 }
-void Busca_Semelhante_Privado(list<Palavra> &Semelhantes, Palavra P, No *no) {
-    if (no == NULL)  return;
-    if ((no->P).Semelhante(P)) { // Se a Palavra em no (no->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
-        Semelhantes.push_back(no->P);
-    }
-    Busca_Semelhante_Privado(Semelhantes, P, no->Filho_Esquerdo);
-    Busca_Semelhante_Privado(Semelhantes, P, no->Filho_Direito);
-}
-void Arvore::Busca_Semelhante(list<Palavra> &Semelhantes, Palavra P) {
-    Busca_Semelhante_Privado(Semelhantes, P, Raiz);
-}
 
 
 // Percurso

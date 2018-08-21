@@ -47,7 +47,13 @@ void Dicionario::InserirPalavra(Palavra &P) {
 // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
 void Dicionario::setSemelhantes(Palavra &P) {
     Semelhantes.clear(); // A cada chamada da função setSemelhantes, esvaziamos a lista de Semelhantes
-    Palavras_Do_Dicionario.Busca_Semelhante(Semelhantes, P);
+    Iterador it = Palavras_Do_Dicionario.begin();
+    while (it != Palavras_Do_Dicionario.end() && !(*it).Semelhante(P))
+        it++;
+    while (it != Palavras_Do_Dicionario.end() && (*it).Semelhante(P)) {
+        Semelhantes.push_back(*it);
+        it++;
+    }
 }
 
 
