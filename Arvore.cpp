@@ -272,9 +272,14 @@ Iterador Arvore::end() const {
     return Iterador(NULL);
 }
 
-Iterador Arvore::last() const {
+
+Iterador Arvore::rbegin() const {
     No *Atual = Raiz;
     while (Atual->Filho_Direito)
         Atual = Atual->Filho_Direito;
     return Iterador(Atual);
+}
+
+Iterador Arvore::rend() const {
+    return Iterador(NULL);
 }

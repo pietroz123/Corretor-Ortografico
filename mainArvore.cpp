@@ -10,7 +10,7 @@ int main() {
     int Opcao = -1;
     while (Opcao != 0) {
 
-        cout << "(0) Sair (1) Inserir (2) Remover (3) Imprimir (4) Buscar" << endl;
+        cout << "(0) Sair (1) Inserir (2) Remover (3) Imprimir (4) Buscar (5) Mostrar Pais (6) Iterador" << endl;
         cout << "Opcao: ";
         cin >> Opcao;
 
@@ -69,7 +69,13 @@ int main() {
 
             case 6: { // Iterador
 
+                cout << "Iteracao Normal:" << endl;
                 for (Iterador it = A.begin(); it != A.end(); it++)
+                    cout << *it << " ";
+                cout << endl;
+
+                cout << "Iteracao Reversa:" << endl;
+                for (Iterador it = A.rbegin(); it != A.rend(); it--)
                     cout << *it << " ";
                 cout << endl;
 
