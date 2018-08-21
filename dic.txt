@@ -11244,6 +11244,7 @@ papão
 papéis
 paquete
 par
+para
 parabéns
 parada
 paradas
@@ -13557,6 +13558,7 @@ restituição
 restituições
 resto
 restos
+restringe
 restritivo
 restrição
 restrições

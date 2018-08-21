@@ -43,7 +43,6 @@ class Arvore {
         void Remover(Palavra);
         bool Busca(Palavra);
         void EmOrdem();
-        void GravarArvore(ofstream &);
 
         // Iterador
         Iterador begin() const;

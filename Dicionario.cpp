@@ -88,8 +88,9 @@ void Dicionario::GravarDicionario() {
     ofstream Original;
     Original.open("dic.txt", ofstream::out);
 
-    // A função GravarDicionario utiliza uma função Auxiliar que itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
-    Palavras_Do_Dicionario.GravarArvore(Original);
+    // A função GravarDicionario itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
+    for (Iterador it = Palavras_Do_Dicionario.begin(); it != Palavras_Do_Dicionario.end(); it++)
+        Original << *it << endl;
 
     Original.close();
 

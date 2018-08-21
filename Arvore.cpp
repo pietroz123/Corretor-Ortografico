@@ -243,17 +243,6 @@ void Arvore::EmOrdem() {
     EmOrdem_Privado(Raiz);
 }
 
-void IterarEmOrdem(No *no, ofstream &Arquivo) {
-    if (no == NULL)  return;
-    IterarEmOrdem(no->Filho_Esquerdo, Arquivo);
-    Arquivo << no->P << endl;
-    IterarEmOrdem(no->Filho_Direito, Arquivo);
-}
-void Arvore::GravarArvore(ofstream &Arquivo) {
-    IterarEmOrdem(Raiz, Arquivo);
-}
-
-
 
 //deletaar
 void MostraPais_Privado(No *N) {
