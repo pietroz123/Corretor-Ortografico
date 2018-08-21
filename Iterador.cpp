@@ -12,6 +12,11 @@ No *Min(No *N) {
         N = N->Filho_Esquerdo;
     return N;
 }
+No *Max(No *N) {
+    while (N->Filho_Direito)
+        N = N->Filho_Direito;
+    return N;
+}
 No *Iterador::SucessorEmOrdem(No *N) {
     if (N == NULL)  return NULL;
 
@@ -31,6 +36,26 @@ No *Iterador::SucessorEmOrdem(No *N) {
     }
     return NULL;
 }
+No *Iterador::PredecessorEmOrdem(No *N) {
+    if (N == NULL)  return NULL;
+
+    if (N->Filho_Esquerdo)
+        return Max(N->Filho_Esquerdo);
+    
+    else {
+        No *Ancestral = N->Pai;
+        while (Ancestral) {
+            if (Atual == Ancestral->Filho_Direito)
+                return Ancestral;
+            else if (Atual == Ancestral->Filho_Esquerdo) {
+                Atual = Ancestral;
+                Ancestral = Ancestral->Pai;
+            }
+        }
+    }
+    return NULL;
+}
+
 
 bool Iterador::operator==(const Iterador &Outro) {
     return Atual == Outro.Atual;
@@ -56,9 +81,12 @@ Iterador Iterador::operator++(int n) {
 }
 
 Iterador Iterador::operator--() {
-
+    Atual = PredecessorEmOrdem(Atual);
+    return Iterador(Atual);
 }
 
 Iterador Iterador::operator--(int n) {
-
+    Iterador Temp = *this;
+    Atual = PredecessorEmOrdem(Atual);
+    return Temp;
 }

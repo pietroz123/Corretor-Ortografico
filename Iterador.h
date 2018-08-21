@@ -10,17 +10,18 @@ class Iterador {
     private:
         No *Atual;
         No *SucessorEmOrdem(No *N);
+        No *PredecessorEmOrdem(No *N);
 
     public:
-        Iterador(No *raiz);
-        Iterador(const Iterador &Outro);
-        bool operator==(const Iterador &it);        // comparação entre iteradores
-        bool operator!=(const Iterador &Outro);      
-        Palavra &operator*() const;                 // acessa e retorna a Palavra
-        Iterador operator++();                      // incrementa para o próximo valor maior
-        Iterador operator++(int n);                 // incrementa em n posições
-        Iterador operator--();                      // decrementa para o valor anterior
-        Iterador operator--(int n);                 // decrementa em n posições
+        Iterador(No *raiz);                         // construtor por nó
+        Iterador(const Iterador &Outro);            // construtor por cópia
+        bool operator==(const Iterador &it);        // comparação entre iteradores (it1 == it2)
+        bool operator!=(const Iterador &Outro);     // comparação entre iteradores (it1 != it2)
+        Palavra &operator*() const;                 // acessa e retorna a Palavra (*it)
+        Iterador operator++();                      // incrementa para o próximo valor maior (++it)
+        Iterador operator++(int n);                 // incrementa para o próximo valor maior (it++)
+        Iterador operator--();                      // decrementa para o valor anterior (--it)
+        Iterador operator--(int n);                 // decrementa para o valor anterior (it--)
 
 
 };

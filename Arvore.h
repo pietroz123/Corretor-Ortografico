@@ -49,6 +49,7 @@ class Arvore {
         // Iterador
         Iterador begin() const;
         Iterador end() const;
+        Iterador last() const;
         
         //deletar
         void MostraPais();
