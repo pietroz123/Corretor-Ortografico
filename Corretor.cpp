@@ -188,7 +188,13 @@ void Corretor::Compara() {
                     D.setSemelhantes(Temp); // Descobrimos as palavras semelhantes
                 
                     cout << "Lista de Palavras Semelhantes: ";
-                    D.MostrarSemelhantes();
+                    try {
+                        D.MostrarSemelhantes();
+                    }
+                    catch (const char *s) {
+                        cout << s << endl;
+                        break;
+                    }
 
                     int Resposta;
                     cout << endl << "Deseja selecionar uma Palavra Semelhante?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;

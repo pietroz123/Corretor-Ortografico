@@ -26,7 +26,6 @@ void Dicionario::InserirPalavras(ifstream &arquivo) {
 
 // → Imprime as Palavras do Dicionário Em-Ordem
 void Dicionario::ImprimirPalavras() {
-    cout << "Imprimindo arvore..." << endl;
     Palavras_Do_Dicionario.EmOrdem();
     cout << endl;
 }
@@ -61,8 +60,10 @@ void Dicionario::setSemelhantes(Palavra &P) {
 void Dicionario::MostrarSemelhantes() {
 
     if (Palavras_Do_Dicionario.Vazia()) {
-        cout << "Nao foram inseridas palavras no Dicionario!" << endl;
-        return;
+        throw "Nao foram inseridas palavras no Dicionario!";
+    }
+    else if (Semelhantes.empty()) {
+        throw "Nao existem palavras semelhantes!";
     }
 
     list<Palavra>::iterator it;
