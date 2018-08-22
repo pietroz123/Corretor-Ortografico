@@ -13,6 +13,29 @@
 #include <string>
 #include <algorithm>
 
+void Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D) {
+
+    T.setPalavrasTexto(TextWords);
+    C.GravarErros();
+    
+    int Opcao = -1;
+    while(Opcao != 2){
+        cout << endl;
+        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
+        cin >> Opcao;
+        if (Opcao == 1){
+            T.GravarTextoDiferente();
+            cout << "Texto gravado com sucesso!" << endl;
+        }
+    }
+
+    cout << "Gravando Arquivo Texto Original..." << endl;
+    T.GravarTextoOriginal();
+    cout << "Gravando Dicionario..." << endl;
+    D.GravarDicionario();
+
+}
+
 void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
     list<Palavra>::iterator Anterior = prev(Atual, 1);       
@@ -129,23 +152,7 @@ void Corretor::Compara() {
 
                 case 0: {
                 
-                    T.setPalavrasTexto(TextWords);
-                    GravarErros();
-                    
-                    while(Opcao != 2){
-                        cout << endl;
-                        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
-                        cin >> Opcao;
-                        if (Opcao == 1){
-                            T.GravarTextoDiferente();
-                            cout << "Texto gravado com sucesso!" << endl;
-                        }
-                    }
-
-                    cout << "Gravando Arquivo Texto Original..." << endl;
-                    T.GravarTextoOriginal();
-                    cout << "Gravando Dicionario..." << endl;
-                    D.GravarDicionario();
+                    Finalizar(TextWords, *this, T, D);
                     return;
                 
                     break;
@@ -230,24 +237,7 @@ void Corretor::Compara() {
         }
     }
 
-    T.setPalavrasTexto(TextWords);
-    GravarErros();
-    
-    int Opcao = -1;
-    while(Opcao != 2){
-        cout << endl;
-        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
-        cin >> Opcao;
-        if (Opcao == 1){
-            T.GravarTextoDiferente();
-            cout << "Texto gravado com sucesso!" << endl;
-        }
-    }
-
-    cout << "Gravando Arquivo Texto Original..." << endl;
-    T.GravarTextoOriginal();
-    cout << "Gravando Dicionario..." << endl;
-    D.GravarDicionario();
+    Finalizar(TextWords, *this, T, D);
 
 }
 
