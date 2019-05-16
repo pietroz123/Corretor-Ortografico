@@ -1,5 +1,7 @@
 
-/* Número do Grupo: 9
+/* Corretor.h
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
@@ -25,12 +27,22 @@
 class Corretor {
 
     private:
+        Texto T;
+        Dicionario D;
 		list<Palavra> Erros;
 
-    public:
-		void Compara(Texto &T, Dicionario &D);
-    void GravarErros();
+        // Funções Auxiliares
+        void Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D);
+        void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim);
+        void InicializaTexto(Texto &T);
+        void InicializaDicionario(Dicionario &D);
+        string RemovePontuacao(Palavra P);
+        bool ExistePontuacao(Palavra P, char &c);
+        int BuscaErro(Palavra &P, list<Palavra> &Erros);
 
+    public:
+        void Compara();
+        void GravarErros();
 
 };
 

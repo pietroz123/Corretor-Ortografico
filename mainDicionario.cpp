@@ -9,28 +9,25 @@ int main() {
 
     ifstream arquivo("dic.txt");
     D.InserirPalavras(arquivo);
-    D.ImprimirPalavras();
 
-    Palavra P("bananoide");
-    D.setSemelhantes(P);
-    cout << endl << "Mostrando palavras semelhantes a '" << P << "' ..." << endl;
-    D.MostrarSemelhantes();
+    int Opcao = -1;
+    while (Opcao != 0) {
 
-    Palavra P2;
-    cout << endl << "Digite uma palavra para busca: ";
-    cin >> P2;
-    if (D.Consulta(P2))
-        cout << "Existe a palavra '" << P2 << "' na arvore do dicionario!" << endl;
-    else {
-        cout << "NAO existe a palavra '" << P2 << "' na arvore do dicionario!" << endl;
-        int Opcao;
-        cout << "Deseja inserir a palavra? (1) SIM (2) NAO : ";
+        cout << "(0) Sair (1) Consulta" << endl;
+        cout << "Opcao: ";
         cin >> Opcao;
-        if (Opcao == 1)
-            D.InserirPalavra(P2);
-    }
 
-    D.ImprimirPalavras();
+        Palavra P2;
+        cout << endl << "Digite uma palavra para busca: ";
+        cin >> P2;
+
+        if (D.Consulta(P2))
+            cout << "A palavra '" << P2 << "' pertence ao dicionario!" << endl << endl;
+        else
+            cout << "A palavra '" << P2 << "' NAO pertence ao dicionario!" << endl << endl;
+
+
+    }
 
 
     return 0;

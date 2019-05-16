@@ -1,13 +1,42 @@
 
-/* Número do Grupo: 9
+/* Corretor.cpp
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
+*
+*  Contém as implementações da classe Corretor
 */
 
 #include "Corretor.h"
+#include <string>
+#include <algorithm>
 
-void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
+void Corretor::Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D) {
+
+    T.setPalavrasTexto(TextWords);
+    C.GravarErros();
+    
+    int Opcao = -1;
+    while(Opcao != 2){
+        cout << endl;
+        cout << "Deseja gravar o texto em um arquivo diferente?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
+        cin >> Opcao;
+        if (Opcao == 1){
+            T.GravarTextoDiferente();
+            cout << "Texto gravado com sucesso!" << endl;
+        }
+    }
+
+    cout << "Gravando Arquivo Texto Original..." << endl;
+    T.GravarTextoOriginal();
+    cout << "Gravando Dicionario..." << endl;
+    D.GravarDicionario();
+
+}
+
+void Corretor::ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
     list<Palavra>::iterator Anterior = prev(Atual, 1);       
     list<Palavra>::iterator Proximo = next(Atual, 1);
@@ -23,24 +52,88 @@ void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atu
 
 }
 
-void Corretor::Compara(Texto &T, Dicionario &D) {
+void Corretor::InicializaTexto(Texto &T) {
+
+    int flag = false;
+    while (flag == false) {
+        flag = true;
+        try {
+            T.CarregarTexto();
+            cout << "Arquivo carregado com sucesso!" << endl;
+        }
+        catch (const char *s) {
+            cout << s << endl;
+            flag = false;
+        }
+    }
+
+}
+void Corretor::InicializaDicionario(Dicionario &D) {
+
+    ifstream Arquivo_Dicionario("dic.txt");
+    cout << "Inserindo palavras..." << endl;
+    D.InserirPalavras(Arquivo_Dicionario);
+
+}
+
+// Remove a pontuação de uma Palavra e retorna uma nova string
+string Corretor::RemovePontuacao(Palavra P) {
+
+    string palavra = P.getPalavra();
+
+    for (int i = palavra.size() - 1; i > 0; i--) {
+        if (ispunct(palavra[i])) {
+            if (palavra[i] == '-')  // cuida do caso de Palavras com hífen, como louva-a-Deus
+                return palavra;
+            palavra.erase(i--, 1);
+        }
+    }
+
+    return palavra;
+}
+
+bool Corretor::ExistePontuacao(Palavra P, char &c) {
+    
+    string Word = P.getPalavra();
+
+    for (int i = 0; i < Word.size(); i++)
+        if (ispunct(Word[i])) {
+            c = Word[i];
+            return true;
+        }
+
+    return false;
+}
+
+void Corretor::Compara() {
+
+    InicializaDicionario(D);
+    InicializaTexto(T);
 
     list<Palavra> TextWords = T.getPalavrasTexto();
-    
     list<Palavra>::iterator it;
 
+
     for(it = TextWords.begin(); it != TextWords.end(); it++) {
-    
+        
+        // Converte a string presente na Palavra do iterador para letras minúsculas 
+        std::string palavra = (*it).getPalavra();
+        std::transform(palavra.begin(), palavra.end(), palavra.begin(), ::tolower);
+        (*it).setPalavra(palavra);
+
+        Palavra Temp(RemovePontuacao(*it));
+        char c;
+
         // Verifica se a Palavra está no Dicionario      
         // Caso não esteja: 
-        if( D.Consulta(*it) == false ) {
+        if( D.Consulta(Temp) == false ) {
 
             int Opcao;
 
             // Coloca a palavra errada na lista de Erros do Corretor
-            Erros.push_back(*it);
+            Erros.push_back(Temp);
 
-            cout << endl << "Palavra '" << *it << "' NAO pertence ao dicionario!" << endl;
+            cout << endl << "Palavra '" << Temp << "' NAO pertence ao dicionario!" << endl;
             
             // Imprime o Contexto da palavra (anterior - atual - próxima)
             cout << "Contexto da Palavra:" << endl;
@@ -58,50 +151,105 @@ void Corretor::Compara(Texto &T, Dicionario &D) {
             switch(Opcao) {
 
                 case 0: {
-                    T.setPalavrasTexto(TextWords);
-                    GravarErros();
+                
+                    Finalizar(TextWords, *this, T, D);
                     return;
+                
                     break;
                 }
+
                 case 1: {
-                    T.AlterarPalavra(it);
+
+                    Palavra P2;
+                    cout << "Digite a Palavra desejada: ";
+                    cin >> P2;
+                    
+                    if (ExistePontuacao(*it, c)) {
+                        (*it).setPalavra(P2.getPalavra() += c);
+                    }
+                    else {
+                        T.AlterarPalavra(it, P2);
+                    }
+                    
                     cout << "Palavra alterada com sucesso!" << endl;
+                    
                     break;
                 }
+                
                 case 2: {
+                
                     cout << "Palavra ignorada" << endl;
+                
                     break;
                 }
+                
                 case 3: {
 
-                    D.setSemelhantes(*it); // Descobrimos as palavras semelhantes
+                    D.setSemelhantes(Temp); // Descobrimos as palavras semelhantes
                 
                     cout << "Lista de Palavras Semelhantes: ";
-                    D.MostrarSemelhantes();
+                    try {
+                        D.MostrarSemelhantes();
+                    }
+                    catch (const char *s) {
+                        cout << s << endl;
+                        break;
+                    }
 
                     int Resposta;
-                    cout << "Deseja selecionar uma Palavra Semelhante?" << endl << "(1) SIM" << endl << "(2) NAO" << endl;
+                    cout << endl << "Deseja selecionar uma Palavra Semelhante?" << endl << "\t(1) SIM" << endl << "\t(2) NAO" << endl;
                     cin >> Resposta;
                     
-                    if(Resposta == 1) {
-                        T.AlterarPalavra(it);
-                        cout << "Palavra alterada com sucesso!" << endl;
+                    if (Resposta == 1) {
+                        Palavra P2;
+                        cout << "Digite a Palavra desejada: ";
+                        cin >> P2;
+                        try {
+                            if (!D.ConsultaSemelhantes(P2))
+                                throw 0;
+                            else { 
+                                if (ExistePontuacao(*it, c)) {
+                                    (*it).setPalavra(P2.getPalavra() += c);
+                                }
+                                else {
+                                    T.AlterarPalavra(it, P2);
+                                }
+                                cout << "Palavra alterada com sucesso!" << endl;
+                            }            
+                        }
+                        catch (int Erro) {
+                            if (Erro == 0)
+                               cout << "Palavra nao disponivel na lista de semelhanca!" << endl;
+                        }
+
                     }
+                
                     break;
                 }
+                
                 case 4: {
-                    D.InserirPalavra(*it);
+                
+                    D.InserirPalavra(Temp);
                     cout << "Palavra Adicionada!" << endl;                   
+                
+                    break;
+                }
+                
+                default: {
+                    cout << "Digite uma opcao valida!" << endl;
                     break;
                 }
             }
         }
     }
-    
+
+    Finalizar(TextWords, *this, T, D);
+
 }
 
 
-int BuscaErro(Palavra &P, list<Palavra> &Erros){
+
+int Corretor::BuscaErro(Palavra &P, list<Palavra> &Erros){
     int Contador = 0;
     list<Palavra>::iterator it;
     for(it = Erros.begin(); it != Erros.end(); it++){

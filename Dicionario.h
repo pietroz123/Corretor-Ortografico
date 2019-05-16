@@ -1,5 +1,7 @@
 
-/* Número do Grupo: 9
+/* Dicionario.h
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
@@ -42,7 +44,7 @@ class Dicionario{
         // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
         void setSemelhantes(Palavra &P);
         void MostrarSemelhantes();
-        list<Palavra> getSemelhantes();
+        bool ConsultaSemelhantes(Palavra &);
 
         // → Gravar Dicionario Original
         void GravarDicionario();

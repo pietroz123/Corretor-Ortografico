@@ -1,33 +1,42 @@
-Erro: o
-Numero de vezes: 3
-
-Erro: pietro
-Numero de vezes: 2
-
-Erro: é
-Numero de vezes: 4
-
-Erro: legal.
+Erro: as
 Numero de vezes: 1
-
-Erro: a
-Numero de vezes: 1
-
-Erro: bianca
-Numero de vezes: 2
-
-Erro: também.
-Numero de vezes: 1
-
-Erro: otávio
-Numero de vezes: 2
-
-Erro: inteligente.
-Numero de vezes: 1
-
-Erro: da
-Numero de vezes: 2
 
 Erro: e
+Numero de vezes: 1
+
+Erro: no
+Numero de vezes: 1
+
+Erro: do
+Numero de vezes: 1
+
+Erro: n�o
+Numero de vezes: 1
+
+Erro: se
+Numero de vezes: 1
+
+Erro: ao
+Numero de vezes: 1
+
+Erro: dos
+Numero de vezes: 1
+
+Erro: suas
+Numero de vezes: 1
+
+Erro: na
+Numero de vezes: 1
+
+Erro: de
+Numero de vezes: 1
+
+Erro: qualquer
+Numero de vezes: 1
+
+Erro: pautado
+Numero de vezes: 1
+
+Erro: envolve
 Numero de vezes: 1
 

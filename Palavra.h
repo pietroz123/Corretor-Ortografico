@@ -1,10 +1,12 @@
 
-/* Número do Grupo: 9
-*  Membros:
+/* Palavra.h
+* 
+* Número do Grupo: 9
+* Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
 *
-* Classe Palavra - "Mínimo"
+* Classe Palavra
 *    → Contém ao menos a Palavra;
 *    → Um método que verifique se duas Palavras são semelhantes (começam com as duas mesmas letras);
 *    → Contém operador == sobrecarregado para verificar se duas Palavras são idênticas.
@@ -30,13 +32,15 @@ class Palavra {
         // → Verifica se duas Palavras são semelhantes
         bool Semelhante(Palavra &);
 
+        friend bool operator>(Palavra &, Palavra &);
+        friend bool operator<(Palavra &, Palavra &);
+        friend bool operator==(Palavra &, Palavra &);
+        friend ostream & operator << (ostream &saida, Palavra &P);
+        friend istream & operator >> (istream &entrada, Palavra &P);
+
 };
 
-bool operator>(Palavra &, Palavra &);
-bool operator<(Palavra &, Palavra &);
-bool operator==(Palavra &, Palavra &);
-ostream & operator << (ostream &saida, Palavra &P);
-istream & operator >> (istream &entrada, Palavra &P);
+
 
 #endif 
 

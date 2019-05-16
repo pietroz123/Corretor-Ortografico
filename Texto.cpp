@@ -1,8 +1,12 @@
 
-/* Número do Grupo: 9
+/* Texto.cpp
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
+*
+*  Contém as implementações da classe Texto
 */
 
 #include "Texto.h"
@@ -22,19 +26,15 @@ void Texto::CarregarTexto() {
     ifstream Arquivo;
     Arquivo.open(Nome_Arquivo_Texto, ifstream::in);
 
-    if (Arquivo) {
-
-        Palavra Temp;
-        while (Arquivo >> Temp)
-            Palavras_Texto.push_back(Temp);
-
-        Arquivo.close();
-
-    }
-    else{
-        cout << "Arquivo inexistente!" << endl;
-        CarregarTexto();
-    }
+    if (!Arquivo)
+        throw "Nao existe o arquivo!";
+        
+    Palavra Temp;
+    
+    while (Arquivo >> Temp)
+        Palavras_Texto.push_back(Temp);
+    
+    Arquivo.close();
 
 }
 
@@ -111,9 +111,6 @@ void Texto::setPalavrasTexto(list<Palavra> &Lista) {
 
 
 // → Permite alterar uma Palavra;
-void Texto::AlterarPalavra(list<Palavra>::iterator &it) {
-    Palavra P2;
-    cout << "Digite a Palavra desejada: ";
-    cin >> P2;
+void Texto::AlterarPalavra(list<Palavra>::iterator &it, Palavra &P2) {
     *it = P2;
 }

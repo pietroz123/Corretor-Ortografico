@@ -1,13 +1,15 @@
 
-/* Número do Grupo: 9
+/* Dicionario.cpp
+*
+*  Número do Grupo: 9
 *  Membros:
 *    → Bianca Gomes Rodrigues    RA: 743512
 *    → Pietro Zuntini Bonfim     RA: 743588
+*
+*  Contém as implementações da classe Dicionario
 */
 
 #include "Dicionario.h"
-#include <vector>
-#include <stack>
 
 // → Armazena as palavras do arquivo “dict.txt” em uma árvore balanceada
 void Dicionario::InserirPalavras(ifstream &arquivo) {
@@ -24,7 +26,6 @@ void Dicionario::InserirPalavras(ifstream &arquivo) {
 
 // → Imprime as Palavras do Dicionário Em-Ordem
 void Dicionario::ImprimirPalavras() {
-    cout << "Imprimindo arvore..." << endl;
     Palavras_Do_Dicionario.EmOrdem();
     cout << endl;
 }
@@ -43,22 +44,15 @@ void Dicionario::InserirPalavra(Palavra &P) {
 
 
 // → Fornecer uma LISTA de palavras semelhantes à determinada palavra (palavras semelhantes começam com as duas mesmas letras)
-void setSemelhantes_Privado(list<Palavra> &Semelhantes, No *N, Palavra &P) {
-    if (N == NULL)  return;
-    if ((N->P).Semelhante(P)) { // Se a Palavra em N (N->P) for semelhante a Palavra, a colocamos na Lista de Semelhantes
-        Semelhantes.push_back(N->P);
-    }
-    setSemelhantes_Privado(Semelhantes, N->Filho_Esquerdo, P);
-    setSemelhantes_Privado(Semelhantes, N->Filho_Direito, P);
-}
 void Dicionario::setSemelhantes(Palavra &P) {
     Semelhantes.clear(); // A cada chamada da função setSemelhantes, esvaziamos a lista de Semelhantes
-    setSemelhantes_Privado(Semelhantes, Palavras_Do_Dicionario.getPrimeiro(), P);
-}
-
-// Método Get que retorna a lista de Semelhantes
-list<Palavra> Dicionario::getSemelhantes(){
-    return Semelhantes;    
+    Iterador it = Palavras_Do_Dicionario.begin();
+    while (it != Palavras_Do_Dicionario.end() && !(*it).Semelhante(P))
+        it++;
+    while (it != Palavras_Do_Dicionario.end() && (*it).Semelhante(P)) {
+        Semelhantes.push_back(*it);
+        it++;
+    }
 }
 
 
@@ -66,8 +60,10 @@ list<Palavra> Dicionario::getSemelhantes(){
 void Dicionario::MostrarSemelhantes() {
 
     if (Palavras_Do_Dicionario.Vazia()) {
-        cout << "Nao foram inseridas palavras no Dicionario!" << endl;
-        return;
+        throw "Nao foram inseridas palavras no Dicionario!";
+    }
+    else if (Semelhantes.empty()) {
+        throw "Nao existem palavras semelhantes!";
     }
 
     list<Palavra>::iterator it;
@@ -78,37 +74,24 @@ void Dicionario::MostrarSemelhantes() {
 
 }
 
+bool Dicionario::ConsultaSemelhantes(Palavra &P) {
+    for (list<Palavra>::iterator it = Semelhantes.begin(); it != Semelhantes.end(); it++)
+        if (*it == P)
+            return true;
+    return false;
+}
+
+
 
 // → Gravar Dicionario Original
-void IterarDicionario_EmOrdem(No *Raiz, ofstream &Original) {
-    
-    if (Raiz == NULL)   return;
-
-    stack<No*> s;
-
-    No *Atual = Raiz;
-    while ( !s.empty() || Atual != NULL) {
-
-        while (Atual != NULL) {
-            s.push(Atual);
-            Atual = Atual->Filho_Esquerdo;
-        }
-
-        Atual = s.top();
-        Original << Atual->P << endl;
-        s.pop();
-        Atual = Atual->Filho_Direito;
-
-    }
-
-}
 void Dicionario::GravarDicionario() {
 
     ofstream Original;
     Original.open("dic.txt", ofstream::out);
 
-    // A função GravarDicionario utiliza uma função Auxiliar que itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
-    IterarDicionario_EmOrdem(Palavras_Do_Dicionario.getPrimeiro(), Original);
+    // A função GravarDicionario itera pela árvore do Dicionário Em-Ordem, e coloca no Arquivo Original (dic.txt)
+    for (Iterador it = Palavras_Do_Dicionario.begin(); it != Palavras_Do_Dicionario.end(); it++)
+        Original << *it << endl;
 
     Original.close();
 
