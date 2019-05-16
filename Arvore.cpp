@@ -34,7 +34,7 @@ bool Arvore::Vazia() {
 
 
 // Funções Auxiliares para o Fator de Balanceamento (Fb = Hd - He)
-int altura(No *no) {
+int Arvore::altura(No *no) {
     if (no == NULL)  return 0;
     int He = altura(no->Filho_Esquerdo); // He = Altura Esquerda
     int Hd = altura(no->Filho_Direito);  // Hd = Altura Direita
@@ -43,13 +43,13 @@ int altura(No *no) {
     else
         return He + 1;
 }
-int Fb(No *no) {
+int Arvore::Fb(No *no) {
     return altura(no->Filho_Direito) - altura(no->Filho_Esquerdo);
 }
 
 
 // Rotações
-No *RotacaoRL(No *A) {
+No *Arvore::RotacaoRL(No *A) {
     No *B = A->Filho_Direito;
     No *C = B->Filho_Esquerdo;
     No *h2 = C->Filho_Esquerdo;
@@ -70,7 +70,7 @@ No *RotacaoRL(No *A) {
 
     return C;   
 }
-No *RotacaoLR(No *A) {
+No *Arvore::RotacaoLR(No *A) {
     No *B = A->Filho_Esquerdo;
     No *C = B->Filho_Direito;
     No *h2 = C->Filho_Esquerdo;
@@ -91,7 +91,7 @@ No *RotacaoLR(No *A) {
 
     return C;
 }
-No *RotacaoLL(No *A) {
+No *Arvore::RotacaoLL(No *A) {
     No *B = A->Filho_Esquerdo;
     No *h2 = B->Filho_Direito;
 
@@ -105,7 +105,7 @@ No *RotacaoLL(No *A) {
 
     return B;    
 }
-No *RotacaoRR(No *A) {
+No *Arvore::RotacaoRR(No *A) {
     No *B = A->Filho_Direito; 
     No *h2 = B->Filho_Esquerdo;
 
@@ -120,7 +120,7 @@ No *RotacaoRR(No *A) {
     return B;
 }
 // Inserção
-No *Inserir_Privado(No *no, Palavra P) {
+No *Arvore::Inserir_Privado(No *no, Palavra P) {
     if (no == NULL) {
         return new No(P);
     }
@@ -164,12 +164,12 @@ void Arvore::Inserir(Palavra P) {
 
 
 // Remoção
-No *Minimo(No *no) {
+No *Arvore::Minimo(No *no) {
     while (no->Filho_Esquerdo)
         no = no->Filho_Esquerdo;
     return no;
 }
-No *Remover_Privado(No *no, Palavra P) {
+No *Arvore::Remover_Privado(No *no, Palavra P) {
     if (no == NULL)
         return NULL;
     else if (P < no->P)              // vá para a sub-árvore direita
@@ -233,7 +233,7 @@ bool Arvore::Busca(Palavra P) {
 
 
 // Percurso
-void EmOrdem_Privado(No *no) {
+void Arvore::EmOrdem_Privado(No *no) {
     if (no == NULL)  return;
     EmOrdem_Privado(no->Filho_Esquerdo);
     cout << no->P << " ";
@@ -245,7 +245,7 @@ void Arvore::EmOrdem() {
 
 
 //deletaar
-void MostraPais_Privado(No *N) {
+void Arvore::MostraPais_Privado(No *N) {
     if (N == NULL)  return;
     MostraPais_Privado(N->Filho_Esquerdo);
     cout << N->P << " - Pai: ";

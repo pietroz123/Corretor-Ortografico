@@ -13,7 +13,7 @@
 #include <string>
 #include <algorithm>
 
-void Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D) {
+void Corretor::Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D) {
 
     T.setPalavrasTexto(TextWords);
     C.GravarErros();
@@ -36,7 +36,7 @@ void Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D) {
 
 }
 
-void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
+void Corretor::ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim) {
 
     list<Palavra>::iterator Anterior = prev(Atual, 1);       
     list<Palavra>::iterator Proximo = next(Atual, 1);
@@ -52,7 +52,7 @@ void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atu
 
 }
 
-void InicializaTexto(Texto &T) {
+void Corretor::InicializaTexto(Texto &T) {
 
     int flag = false;
     while (flag == false) {
@@ -68,7 +68,7 @@ void InicializaTexto(Texto &T) {
     }
 
 }
-void InicializaDicionario(Dicionario &D) {
+void Corretor::InicializaDicionario(Dicionario &D) {
 
     ifstream Arquivo_Dicionario("dic.txt");
     cout << "Inserindo palavras..." << endl;
@@ -77,7 +77,7 @@ void InicializaDicionario(Dicionario &D) {
 }
 
 // Remove a pontuação de uma Palavra e retorna uma nova string
-string RemovePontuacao(Palavra P) {
+string Corretor::RemovePontuacao(Palavra P) {
 
     string palavra = P.getPalavra();
 
@@ -92,7 +92,7 @@ string RemovePontuacao(Palavra P) {
     return palavra;
 }
 
-bool ExistePontuacao(Palavra P, char &c) {
+bool Corretor::ExistePontuacao(Palavra P, char &c) {
     
     string Word = P.getPalavra();
 
@@ -249,7 +249,7 @@ void Corretor::Compara() {
 
 
 
-int BuscaErro(Palavra &P, list<Palavra> &Erros){
+int Corretor::BuscaErro(Palavra &P, list<Palavra> &Erros){
     int Contador = 0;
     list<Palavra>::iterator it;
     for(it = Erros.begin(); it != Erros.end(); it++){

@@ -6,13 +6,12 @@ Iterador::Iterador(const Iterador &Outro) {
     this->Atual = Outro.Atual;
 }
 
-
-No *Min(No *N) {
+No *Iterador::Min(No *N) {
     while (N->Filho_Esquerdo)
         N = N->Filho_Esquerdo;
     return N;
 }
-No *Max(No *N) {
+No *Iterador::Max(No *N) {
     while (N->Filho_Direito)
         N = N->Filho_Direito;
     return N;

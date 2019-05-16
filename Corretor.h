@@ -31,6 +31,15 @@ class Corretor {
         Dicionario D;
 		list<Palavra> Erros;
 
+        // Funções Auxiliares
+        void Finalizar(list<Palavra> &TextWords, Corretor &C, Texto &T, Dicionario &D);
+        void ImprimeContexto(list<Palavra>::iterator Inicio, list<Palavra>::iterator Atual, list<Palavra>::iterator Fim);
+        void InicializaTexto(Texto &T);
+        void InicializaDicionario(Dicionario &D);
+        string RemovePontuacao(Palavra P);
+        bool ExistePontuacao(Palavra P, char &c);
+        int BuscaErro(Palavra &P, list<Palavra> &Erros);
+
     public:
         void Compara();
         void GravarErros();

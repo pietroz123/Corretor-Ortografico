@@ -34,6 +34,20 @@ class Arvore {
     private:
         int nFilhos;
         No *Raiz;
+
+        // Funções Auxiliares
+        int altura(No *no);
+        int Fb(No *no);
+        No *RotacaoRL(No *A);
+        No *RotacaoLR(No *A);
+        No *RotacaoLL(No *A);
+        No *RotacaoRR(No *A);
+        No *Inserir_Privado(No *no, Palavra P);
+        No *Minimo(No *no);
+        No *Remover_Privado(No *no, Palavra P);
+        void EmOrdem_Privado(No *no);
+        void MostraPais_Privado(No *N);
+        
     
     public:
         Arvore();

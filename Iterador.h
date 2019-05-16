@@ -12,6 +12,11 @@ class Iterador {
         No *SucessorEmOrdem(No *N);
         No *PredecessorEmOrdem(No *N);
 
+        // Funções Auxiliares
+        No *Min(No *N);
+        No *Max(No *N);
+
+
     public:
         Iterador(No *raiz);                         // construtor por nó
         Iterador(const Iterador &Outro);            // construtor por cópia

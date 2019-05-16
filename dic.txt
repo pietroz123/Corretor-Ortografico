@@ -1751,6 +1751,7 @@ barões
 basca
 basco
 base
+baseadas
 basebol
 bases
 basquetebol
@@ -5315,6 +5316,7 @@ dúvida
 dúvidas
 dúzia
 dúzias
+e
 ebulição
 eclesiástico
 eclesiásticos
@@ -6438,6 +6440,7 @@ extracção
 extradição
 extraordinário
 extraordinários
+extrapolando
 extrapolação
 extras
 extraterrestre
@@ -10681,6 +10684,7 @@ nitidez
 nitrato
 nitratos
 nivelamento
+no
 noa
 nobre
 nobres
@@ -12762,6 +12766,7 @@ qualificado
 qualificados
 qualificação
 qualificações
+qualquer
 quanta
 quantia
 quantias
